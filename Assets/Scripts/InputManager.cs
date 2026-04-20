@@ -35,6 +35,11 @@ public class InputManager : MonoBehaviour
         inputActions.Player.Disable();
     }
 
+    public bool WasClickPressedThisFrame()
+    {
+        return inputActions.Player.MouseClick.WasPressedThisFrame();
+    }
+
     private void Update()
     {
         MoveInput = inputActions.Player.MousePosition.ReadValue<Vector2>();

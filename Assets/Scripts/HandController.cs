@@ -5,10 +5,14 @@ public class HandController : MonoBehaviour
     [Header("Movement Configuration")]
     [SerializeField] private float smoothness = 0.1f;
 
+    [Header("Catch Configuration")]
+    [SerializeField] private LayerMask trashLayer;
+
     private Vector3 velocity;
     private Camera mainCamera;
-
     private Trash currentTrash;
+
+    private bool justCaught;
 
     private void Start()
     {
@@ -28,24 +32,41 @@ public class HandController : MonoBehaviour
 
     private void CheckInputs()
     {
-        if (InputManager.Instance.IsDraging)
-            CatchTrash();
+        if (InputManager.Instance.WasClickPressedThisFrame())
+            if (currentTrash == null)
+                TryCatch();
 
         if (!InputManager.Instance.IsDraging && currentTrash != null)
         {
+            if (justCaught)
+            {
+                justCaught = false;
+                return;
+            }
+
             currentTrash.DropTrash();
             currentTrash = null;
         }
     }
 
-    private void CatchTrash()
+    private void TryCatch()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.5f);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.5f, trashLayer);
 
-        if (hit != null && hit.CompareTag("Trash"))
+        if (hit != null && hit.TryGetComponent<Trash>(out Trash trash))
         {
-            currentTrash = hit.GetComponent<Trash>();
-            currentTrash.FollowHand(transform);
+            if (trash.HasFish())
+            {
+                trash.ReleaseFish();
+                Debug.Log("Fish Released! Click again to grab the trash.");
+            }
+            else
+            {
+                currentTrash = trash;
+                currentTrash.FollowHand(transform);
+                justCaught = true;
+                Debug.Log("Trash Caught!");
+            }
         }
     }
 }
