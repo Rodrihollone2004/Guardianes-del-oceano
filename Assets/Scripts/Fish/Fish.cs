@@ -2,18 +2,22 @@
 
 public class Fish : MonoBehaviour
 {
-    [Header("Fish Configuration")]
-    [SerializeField] private float velocity;
-    [SerializeField] private Vector2 direction;
-
-
+    private float velocity;
+    private Vector2 moveDirection;
     private bool isTrapped;
     private Transform trapTransform;
     private int trashLayerIndex;
 
-    private void Awake()
+    public void Initialize(Vector2 dir, float speed)
     {
+        moveDirection = dir;
+        velocity = speed;
         trashLayerIndex = LayerMask.NameToLayer("Trash");
+
+        if (moveDirection.x > 0)
+            transform.Rotate(0, 0, -90);
+        else
+            transform.Rotate(0, 0, 90);
     }
 
     private void Update()
@@ -21,7 +25,7 @@ public class Fish : MonoBehaviour
         if (isTrapped && trapTransform != null)
             transform.position = trapTransform.position;
         else
-            transform.Translate(direction * velocity * Time.deltaTime);
+            transform.Translate(moveDirection * velocity * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +41,8 @@ public class Fish : MonoBehaviour
 
     public void TrapInTrash(Transform trash, Trash trashScript)
     {
-        if (trashScript.IsCaught) return;
+        if (trashScript.IsCaught || trashScript.IsFishTrapped) 
+            return;
 
         isTrapped = true;
         trapTransform = trash;
@@ -50,5 +55,3 @@ public class Fish : MonoBehaviour
         trapTransform = null;
     }
 }
-
-

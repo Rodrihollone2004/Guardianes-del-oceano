@@ -8,21 +8,22 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private Transform trashContainer;
     [SerializeField] private float spawnInterval = 1.5f;
     [SerializeField] private float spawnHeightOffset = 2f; 
-    [SerializeField] private float horizontalMargin = 1f; 
+    [SerializeField] private float horizontalMargin = 1f;
+    [SerializeField] private Camera mainCamera;
 
     [Header("Finish Spawn Configuration")]
     [SerializeField] private int spawnLimit;
 
     private int currentSpawn;
 
-    private Camera mainCamera;
     private float screenLeft;
     private float screenRight;
     private float spawnY;
 
+    public int SpawnLimit { get => spawnLimit; set => spawnLimit = value; }
+
     private void Awake()
     {
-        mainCamera = Camera.main;
         CalculateSpawnBoundaries();
     }
 

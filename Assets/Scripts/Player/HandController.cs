@@ -55,6 +55,9 @@ public class HandController : MonoBehaviour
 
         if (hit != null && hit.TryGetComponent<Trash>(out Trash trash))
         {
+            if (trash.IsContamination)
+                return;
+
             if (trash.HasFish())
             {
                 trash.ReleaseFish();

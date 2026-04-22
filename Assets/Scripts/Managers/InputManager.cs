@@ -40,6 +40,11 @@ public class InputManager : MonoBehaviour
         return inputActions.Player.MouseClick.WasPressedThisFrame();
     }
 
+    public bool WasPausePressedThisFrame()
+    {
+        return inputActions.Player.Pause.WasPressedThisFrame();
+    }
+
     private void Update()
     {
         MoveInput = inputActions.Player.MousePosition.ReadValue<Vector2>();

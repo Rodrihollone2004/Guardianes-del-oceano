@@ -19,6 +19,8 @@ public class Trash : MonoBehaviour
     private Fish trappedFish;
 
     public bool IsCaught { get; private set; }
+    public bool IsFishTrapped { get; private set; }
+    public bool IsContamination { get; private set; }
     
     private void Awake()
     {
@@ -27,7 +29,9 @@ public class Trash : MonoBehaviour
 
     private void Update()
     {
-        if(IsCaught && handTransform != null)
+        if (IsContamination) return;
+        
+        if (IsCaught && handTransform != null)
             transform.position = handTransform.position;
         else
             transform.Translate(direction * trashSO.Velocity * Time.deltaTime);
@@ -46,7 +50,15 @@ public class Trash : MonoBehaviour
         if (hit != null && hit.TryGetComponent<RecycleBin>(out RecycleBin recycle))
         {
             if(trashSO.Type == recycle.RecycleType)
+            {
+                GameManager.Instance.NotifyTrashRecycled(); 
                 Destroy(gameObject);
+            }
+            else
+            {
+                GameManager.Instance.NotifyWrongRecycle();
+                Destroy(gameObject);
+            }
         }
 
         IsCaught = false;
@@ -56,6 +68,7 @@ public class Trash : MonoBehaviour
     public void SetTrappedFish(Fish fish)
     {
         trappedFish = fish;
+        IsFishTrapped = true;
     }
 
     public bool HasFish() => trappedFish != null;
@@ -66,6 +79,17 @@ public class Trash : MonoBehaviour
         {
             trappedFish.Release();
             trappedFish = null;
+            IsFishTrapped = false;
         }
+    }
+
+    public void SetToBottom()
+    {
+        IsContamination = true;
+        IsCaught = false;
+        handTransform = null;
+
+        if (TryGetComponent<SpriteRenderer>(out var renderer))
+            renderer.color = Color.gray;
     }
 }
