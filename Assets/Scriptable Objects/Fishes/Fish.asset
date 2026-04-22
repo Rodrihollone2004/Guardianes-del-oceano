@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
   prefab: {fileID: 836450720845214380, guid: 89845ea3753397e439be2b4e1c10d030, type: 3}
   minVelocity: 2
-  maxVelocity: 5
+  maxVelocity: 4

@@ -8,23 +8,39 @@ public class Fish : MonoBehaviour
     private Transform trapTransform;
     private int trashLayerIndex;
 
+   
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void Initialize(Vector2 dir, float speed)
     {
         moveDirection = dir;
         velocity = speed;
         trashLayerIndex = LayerMask.NameToLayer("Trash");
 
-        if (moveDirection.x > 0)
-            transform.Rotate(0, 0, -90);
-        else
-            transform.Rotate(0, 0, 90);
+  
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = (moveDirection.x < 0);
+        }
+
+
     }
+
+  
 
     private void Update()
     {
         if (isTrapped && trapTransform != null)
             transform.position = trapTransform.position;
         else
+       
             transform.Translate(moveDirection * velocity * Time.deltaTime, Space.World);
     }
 
@@ -41,7 +57,7 @@ public class Fish : MonoBehaviour
 
     public void TrapInTrash(Transform trash, Trash trashScript)
     {
-        if (trashScript.IsCaught || trashScript.IsFishTrapped) 
+        if (trashScript.IsCaught || trashScript.IsFishTrapped)
             return;
 
         isTrapped = true;

@@ -58,29 +58,63 @@ public class FishSpawner : MonoBehaviour
         }
     }
 
+    //private void SpawnFish()
+    //{
+    //    if (fishTypes.Length == 0) return;
+
+    //    bool spawnFromLeft = Random.Range(0, 2) == 0;
+
+    //    float spawnX = spawnFromLeft ? screenLeft : screenRight;
+    //    float spawnY = Random.Range(screenBottom, screenTop);
+    //    Vector3 spawnPos = new Vector3(spawnX, spawnY, 0f);
+
+    //    Vector2 direction = spawnFromLeft ? Vector2.right : Vector2.left;
+
+    //    FishSO selectedSO = fishTypes[Random.Range(0, fishTypes.Length)];
+    //    GameObject fishObj = Instantiate(selectedSO.prefab, spawnPos, Quaternion.identity, fishContainer);
+    //    currentSpawn++;
+
+    //    if (fishObj.TryGetComponent<Fish>(out Fish fishScript))
+    //    {
+    //        float randomSpeed = Random.Range(selectedSO.minVelocity, selectedSO.maxVelocity);
+    //        fishScript.Initialize(direction, randomSpeed);
+    //    }
+    //}
     private void SpawnFish()
     {
         if (fishTypes.Length == 0) return;
 
+        // Determinamos el lado de aparición
         bool spawnFromLeft = Random.Range(0, 2) == 0;
 
         float spawnX = spawnFromLeft ? screenLeft : screenRight;
         float spawnY = Random.Range(screenBottom, screenTop);
         Vector3 spawnPos = new Vector3(spawnX, spawnY, 0f);
 
+        // Definimos la dirección del movimiento
         Vector2 direction = spawnFromLeft ? Vector2.right : Vector2.left;
 
         FishSO selectedSO = fishTypes[Random.Range(0, fishTypes.Length)];
+
+        // Instanciamos el pez
         GameObject fishObj = Instantiate(selectedSO.prefab, spawnPos, Quaternion.identity, fishContainer);
         currentSpawn++;
 
+        // Lógica Visual: Voltear el sprite si viene de la derecha
+        // Asumimos que tu pez en el prefab mira hacia la DERECHA por defecto
+        if (fishObj.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr))
+        {
+            // Si no sale de la izquierda (osea, sale de la derecha), lo volteamos
+            sr.flipX = !spawnFromLeft;
+        }
+
+        // Lógica de Comportamiento: Inicializar velocidad y dirección
         if (fishObj.TryGetComponent<Fish>(out Fish fishScript))
         {
             float randomSpeed = Random.Range(selectedSO.minVelocity, selectedSO.maxVelocity);
             fishScript.Initialize(direction, randomSpeed);
         }
     }
-
     private void OnDrawGizmos()
     {
         // Calculamos los bordes para verlos en el editor aunque no estemos en Play
