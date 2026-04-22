@@ -18,14 +18,17 @@ public class HandController : MonoBehaviour
     {
         mainCamera = Camera.main;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()
     {
         Vector3 mousePosition = InputManager.Instance.MoveInput;
         mousePosition.z = Mathf.Abs(mainCamera.transform.position.z);
+
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        transform.position = Vector3.SmoothDamp(transform.position, worldPosition, ref velocity, smoothness);
+        Vector3 clampedPosition = ClampPositionToScreen(worldPosition);
+        transform.position = Vector3.SmoothDamp(transform.position, clampedPosition, ref velocity, smoothness);
 
         CheckInputs();
     }
@@ -61,15 +64,27 @@ public class HandController : MonoBehaviour
             if (trash.HasFish())
             {
                 trash.ReleaseFish();
-                Debug.Log("Fish Released! Click again to grab the trash.");
             }
             else
             {
                 currentTrash = trash;
                 currentTrash.FollowHand(transform);
                 justCaught = true;
-                Debug.Log("Trash Caught!");
             }
         }
+    }
+
+    private Vector3 ClampPositionToScreen(Vector3 targetPos)
+    {
+        float zDist = Mathf.Abs(mainCamera.transform.position.z);
+        Vector3 minBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, zDist));
+        Vector3 maxBounds = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, zDist));
+
+        float margin = 0.2f;
+
+        float clampedX = Mathf.Clamp(targetPos.x, minBounds.x + margin, maxBounds.x - margin);
+        float clampedY = Mathf.Clamp(targetPos.y, minBounds.y + margin, maxBounds.y - margin);
+
+        return new Vector3(clampedX, clampedY, targetPos.z);
     }
 }

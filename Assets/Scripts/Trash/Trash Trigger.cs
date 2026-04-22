@@ -26,4 +26,9 @@ public class TrashTrigger : MonoBehaviour
             }
         }
     }
+
+    public void UpdateContamination()
+    {
+        OnContamination?.Invoke();
+    }
 }

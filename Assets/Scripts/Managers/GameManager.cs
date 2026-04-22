@@ -60,12 +60,14 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             uIManager.ShowPauseScreen();
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             Time.timeScale = 1f;
             uIManager.ResumeGame();
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         Time.timeScale = 0;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         if (win) uIManager.ShowWinScreen();
         else uIManager.ShowLoseScreen();
@@ -126,6 +129,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
     }

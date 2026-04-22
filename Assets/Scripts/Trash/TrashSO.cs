@@ -5,5 +5,6 @@ public class TrashSO : ScriptableObject
 {
     public TrashType Type;
     public float Velocity;
-    public LayerMask recycleBin;
+    public LayerMask RecycleBin;
+    public LayerMask Contamination;
 }

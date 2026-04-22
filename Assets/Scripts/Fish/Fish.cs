@@ -1,19 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
+    [Header("Trash Contacts")]
+    [SerializeField] private List<TrashType> contactTypes;
+
     private float velocity;
     private Vector2 moveDirection;
     private bool isTrapped;
     private Transform trapTransform;
     private int trashLayerIndex;
-
    
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -23,24 +25,15 @@ public class Fish : MonoBehaviour
         velocity = speed;
         trashLayerIndex = LayerMask.NameToLayer("Trash");
 
-  
-
         if (spriteRenderer != null)
-        {
             spriteRenderer.flipX = (moveDirection.x < 0);
-        }
-
-
     }
-
-  
 
     private void Update()
     {
         if (isTrapped && trapTransform != null)
             transform.position = trapTransform.position;
         else
-       
             transform.Translate(moveDirection * velocity * Time.deltaTime, Space.World);
     }
 
@@ -49,9 +42,8 @@ public class Fish : MonoBehaviour
         if (!isTrapped && collision.gameObject.layer == trashLayerIndex)
         {
             if (collision.TryGetComponent<Trash>(out Trash trashScript))
-            {
-                TrapInTrash(collision.transform, trashScript);
-            }
+                if (contactTypes.Contains(trashScript.Type))
+                    TrapInTrash(collision.transform, trashScript);
         }
     }
 
