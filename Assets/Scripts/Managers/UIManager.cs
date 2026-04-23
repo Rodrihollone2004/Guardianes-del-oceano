@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateContamination(float percentage)
     {
-        contaminationText.text = $"Contamination: {Mathf.RoundToInt(percentage)}%";
+        contaminationText.text = $"CONTAMINATION: {Mathf.RoundToInt(percentage)}";
     }
 
     public void ShowWinScreen() => winPanel.SetActive(true);
