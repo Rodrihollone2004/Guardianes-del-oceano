@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4452c8828877045826b3bf9363e7fe, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
+  fishName: Pez Payaso
+  description: Un gran Pez
   prefab: {fileID: 836450720845214380, guid: 89845ea3753397e439be2b4e1c10d030, type: 3}
+  stickerSprite: {fileID: 21300000, guid: fdcf3bc9a7ed2604fab684aafcb5b533, type: 3}
   minVelocity: 2
   maxVelocity: 4
+  isUnlocked: 1
