@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Managers References")]
-    [SerializeField] TrashTrigger trashTrigger;
-    [SerializeField] TrashSpawner trashSpawner;
-    [SerializeField] UIManager uIManager;
+    
+    [HideInInspector] public TrashSpawner TrashSpawner;
+    [HideInInspector] public TrashTrigger TrashTrigger;
+    [HideInInspector] public UIManager UIManager;
 
     [Header("Album Configuration")]
     [SerializeField] private List<FishSO> allFishInGame;
@@ -20,100 +21,89 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float loseThreshold = 60f;
 
     private int totalTrashSpawned;
-    private int trashOnBottom;
     private int trashProcessed;
+    private float currentContamination;
 
     private bool isGameOver;
     private bool isPaused;
 
+    public bool IsGameOver { get => isGameOver; set => isGameOver = value; }
+
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
+        else { Destroy(gameObject); return; }
     }
 
-    private void OnEnable()
-    {
-        trashTrigger.OnContamination += HandleContamination;
-    }
-
-    private void OnDisable()
-    {
-        trashTrigger.OnContamination -= HandleContamination;
-    }
 
     private void Start()
     {
-        totalTrashSpawned = trashSpawner.SpawnLimit;
-        uIManager.UpdateContamination(0);
+        TrashTrigger.OnContamination += HandleTrashToBottom;
+
+        totalTrashSpawned = TrashSpawner.SpawnLimit;
+        currentContamination = 0;
+        trashProcessed = 0;
     }
 
+    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (TrashTrigger != null) TrashTrigger.OnContamination -= HandleTrashToBottom;
+    }
     private void Update()
     {
         if (InputManager.Instance.WasPausePressedThisFrame() && !isGameOver)
-        {
             TogglePause();
-        }
     }
 
     public void TogglePause()
     {
         isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
 
-        if (isPaused)
-        {
-            Time.timeScale = 0f;
-            uIManager.ShowPauseScreen();
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            uIManager.ResumeGame();
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Confined;
-        }
+        if (isPaused) UIManager.ShowPauseScreen();
+        else UIManager.ResumeGame();
+
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Confined;
     }
 
-    private void ProcessContamination()
+    public void AddRawContamination(float amount)
     {
         if (isGameOver) return;
 
-        trashOnBottom++;
-        trashProcessed++;
+        currentContamination += amount;
+        UIManager.UpdateContamination(currentContamination);
 
-        float currentPercentage = ((float)trashOnBottom / totalTrashSpawned) * 100f;
-        uIManager.UpdateContamination(currentPercentage);
-
-        if (currentPercentage >= loseThreshold)
-        {
+        if (currentContamination >= loseThreshold)
             GameOver(false);
-        }
-        else if (trashProcessed >= totalTrashSpawned)
-        {
-            GameOver(true);
-        }
     }
 
-    private void HandleContamination()
+    private void HandleTrashToBottom()
     {
-        ProcessContamination();
+        if (isGameOver) return;
+
+        float valuePerTrash = 100f / totalTrashSpawned;
+        AddRawContamination(valuePerTrash);
+
+        trashProcessed++;
+        CheckWinCondition();
     }
 
     public void NotifyWrongRecycle()
     {
-        uIManager.ShowAlert("WRONG BIN!", Color.red);
+        if (isGameOver) return;
 
-        ProcessContamination();
+        UIManager.ShowAlert("WRONG BIN!", Color.red);
+
+        // Penalización: Suma contaminación como si hubiera caído al fondo
+        float penalty = 100f / totalTrashSpawned;
+        AddRawContamination(penalty);
+
+        trashProcessed++;
+        CheckWinCondition();
     }
 
     public void NotifyTrashRecycled()
@@ -121,8 +111,12 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         trashProcessed++;
+        CheckWinCondition();
+    }
 
-        if (trashProcessed >= totalTrashSpawned)
+    private void CheckWinCondition()
+    {
+        if (trashProcessed >= totalTrashSpawned && currentContamination < loseThreshold)
         {
             GameOver(true);
         }
@@ -131,16 +125,16 @@ public class GameManager : MonoBehaviour
     private void GameOver(bool win)
     {
         isGameOver = true;
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
         if (win)
         {
             UnlockNextFish(); 
-            uIManager.ShowWinScreen();
+            UIManager.ShowWinScreen();
         }
-        else uIManager.ShowLoseScreen();
+        else UIManager.ShowLoseScreen();
     }
 
     private void UnlockNextFish()
@@ -156,13 +150,25 @@ public class GameManager : MonoBehaviour
 
     public List<FishSO> GetAllFish() => allFishInGame;
 
-    public void RestartGame()
+    public void RestartValues()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        SceneManager.LoadScene(0);
-        Time.timeScale = 1f;
+        isGameOver = false;
+
+        totalTrashSpawned = TrashSpawner.SpawnLimit;
+        currentContamination = 0;
+        trashProcessed = 0;
     }
 
-    public void QuitGame() => Application.Quit();
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        TrashSpawner = FindFirstObjectByType<TrashSpawner>();
+        TrashTrigger = FindFirstObjectByType<TrashTrigger>();
+        UIManager = FindFirstObjectByType<UIManager>();
+
+        if (TrashTrigger != null)
+            TrashTrigger.OnContamination += HandleTrashToBottom;
+
+        if (TrashSpawner != null)
+            RestartValues();
+    }
 }

@@ -12,6 +12,11 @@ public class TrashTrigger : MonoBehaviour
         trashLayerIndex = LayerMask.NameToLayer("Trash");
     }
 
+    private void Start()
+    {
+        GameManager.Instance.TrashTrigger = this;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == trashLayerIndex)

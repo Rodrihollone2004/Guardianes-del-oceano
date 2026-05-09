@@ -29,6 +29,7 @@ public class TrashSpawner : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.TrashSpawner = this;
         StartCoroutine(SpawnRoutine());
     }
 

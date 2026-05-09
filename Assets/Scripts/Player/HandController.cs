@@ -6,7 +6,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private float smoothness = 0.1f;
 
     [Header("Catch Configuration")]
-    [SerializeField] private LayerMask trashLayer;
+    [SerializeField] private LayerMask interactionLayer;
 
     private Vector3 velocity;
     private Camera mainCamera;
@@ -30,49 +30,69 @@ public class HandController : MonoBehaviour
         Vector3 clampedPosition = ClampPositionToScreen(worldPosition);
         transform.position = Vector3.SmoothDamp(transform.position, clampedPosition, ref velocity, smoothness);
 
-        CheckInputs();
+        HandleInteraction();
     }
 
-    private void CheckInputs()
+    private void HandleInteraction()
     {
         if (InputManager.Instance.WasClickPressedThisFrame())
-            if (currentTrash == null)
-                TryCatch();
+        {
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.4f, interactionLayer);
+
+            if (hit != null)
+            {
+                if (hit.TryGetComponent<SewagePipe>(out var pipe))
+                {
+                    pipe.Hit();
+                    return;
+                }
+
+                if (currentTrash == null && hit.TryGetComponent<Trash>(out var trash))
+                {
+                    if (trash.IsContamination)
+                        return;
+
+                    if (trash.HasFish())
+                        trash.ReleaseFish();
+                    else
+                    {
+                        currentTrash = trash;
+                        currentTrash.FollowHand(transform);
+                        justCaught = true;
+                    }
+                }
+            }
+        }
 
         if (!InputManager.Instance.IsDraging && currentTrash != null)
         {
-            if (justCaught)
-            {
-                justCaught = false;
-                return;
-            }
-
+            if (justCaught) { justCaught = false; return; }
             currentTrash.DropTrash();
             currentTrash = null;
         }
     }
 
-    private void TryCatch()
-    {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.5f, trashLayer);
+    //private void TryCatch()
+    //{
+    //    Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.5f, interactionLayer);
 
-        if (hit != null && hit.TryGetComponent<Trash>(out Trash trash))
-        {
-            if (trash.IsContamination)
-                return;
+    //    if (hit != null && hit.TryGetComponent<Trash>(out Trash trash))
+    //    {
+    //        if (trash.IsContamination)
+    //            return;
 
-            if (trash.HasFish())
-            {
-                trash.ReleaseFish();
-            }
-            else
-            {
-                currentTrash = trash;
-                currentTrash.FollowHand(transform);
-                justCaught = true;
-            }
-        }
-    }
+    //        if (trash.HasFish())
+    //        {
+    //            trash.ReleaseFish();
+    //        }
+    //        else
+    //        {
+    //            currentTrash = trash;
+    //            currentTrash.FollowHand(transform);
+    //            justCaught = true;
+    //        }
+    //    }
+    //}
 
     private Vector3 ClampPositionToScreen(Vector3 targetPos)
     {
