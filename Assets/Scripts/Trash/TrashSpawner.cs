@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
@@ -7,12 +9,16 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private GameObject[] trashPrefabs;
     [SerializeField] private Transform trashContainer;
     [SerializeField] private float spawnInterval = 1.5f;
-    [SerializeField] private float spawnHeightOffset = 2f; 
+    [SerializeField] private float spawnHeightOffset = 2f;
     [SerializeField] private float horizontalMargin = 1f;
     [SerializeField] private Camera mainCamera;
 
     [Header("Finish Spawn Configuration")]
     [SerializeField] private int spawnLimit;
+
+    [Header("Items Contamination")]
+    [SerializeField] private List<SpriteRenderer> contaminationItems;
+    [SerializeField] private List<SpriteRenderer> backContamination;
 
     private int currentSpawn;
 
@@ -21,6 +27,8 @@ public class TrashSpawner : MonoBehaviour
     private float spawnY;
 
     public int SpawnLimit { get => spawnLimit; set => spawnLimit = value; }
+    public List<SpriteRenderer> ContaminationItems { get => contaminationItems; set => contaminationItems = value; }
+    public List<SpriteRenderer> BackContamination { get => backContamination; set => backContamination = value; }
 
     private void Awake()
     {
@@ -29,6 +37,7 @@ public class TrashSpawner : MonoBehaviour
 
     private void Start()
     {
+        ResetItemsAlpha();
         GameManager.Instance.TrashSpawner = this;
         StartCoroutine(SpawnRoutine());
     }
@@ -67,6 +76,48 @@ public class TrashSpawner : MonoBehaviour
         Instantiate(selectedPrefab, spawnPos, Quaternion.identity, trashContainer);
 
         currentSpawn++;
+    }
+
+    public void ReturnContamination()
+    {
+        if (contaminationItems.Count > 0)
+            foreach (SpriteRenderer item in contaminationItems)
+            {
+                Color color = item.color;
+                if (color.a > 1f)
+                    continue;
+                color.a += 0.1f;
+                item.color = color;
+            }
+
+        if (backContamination.Count > 0)
+            foreach (SpriteRenderer item in backContamination)
+            {
+                Color color = item.color;
+                if (color.a < 0f)
+                    continue;
+                color.a -= 0.1f;
+                item.color = color;
+            }
+    }
+
+    private void ResetItemsAlpha()
+    {
+        if (contaminationItems.Count > 0)
+            foreach (SpriteRenderer item in contaminationItems)
+            {
+                Color color = item.color;
+                color.a = 1f;
+                item.color = color;
+            }
+
+        if (backContamination.Count > 0)
+            foreach (SpriteRenderer item in backContamination)
+            {
+                Color color = item.color;
+                color.a = 0f;
+                item.color = color;
+            }
     }
 
     private void OnDrawGizmosSelected()

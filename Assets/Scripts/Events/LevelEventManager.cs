@@ -31,6 +31,9 @@ public class LevelEventManager : MonoBehaviour
                 if (!entry.hasTriggered)
                     Trigger(entry);
             }
+
+            if (!entry.hasTriggered)
+                GameManager.Instance.TrashSpawner.ReturnContamination();
         }
     }
 

@@ -9,10 +9,12 @@ public class SewagePipe : MonoBehaviour, ILevelEvent
     private float tickTimer;
     private SpriteRenderer spriteRenderer;
     private System.Action onDestroyCallback;
+    private TrashSpawner trashSpawner;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        trashSpawner = GameManager.Instance.TrashSpawner;
     }
 
     public void Execute(System.Action onComplete)
@@ -30,6 +32,8 @@ public class SewagePipe : MonoBehaviour, ILevelEvent
         if (tickTimer >= 1f)
         {
             GameManager.Instance.AddRawContamination(contaminationPerSecond);
+            ContaminationSewagePipe();
+            GeneralContamination();
             tickTimer = 0f;
         }
     }
@@ -79,5 +83,27 @@ public class SewagePipe : MonoBehaviour, ILevelEvent
                 transform.eulerAngles = Vector3.zero;
                 break;
         }
+    }
+
+    public void ContaminationSewagePipe()
+    {
+        if (trashSpawner.ContaminationItems.Count > 0)
+            for (int i = 0; i < trashSpawner.ContaminationItems.Count; i++)
+            {
+                Color contaminationColor = trashSpawner.ContaminationItems[i].color;
+                contaminationColor.a -= 0.02f;
+                trashSpawner.ContaminationItems[i].color = contaminationColor;
+            }
+    }
+
+    public void GeneralContamination()
+    {
+        if (trashSpawner.BackContamination.Count > 0)
+            for (int i = 0; i < trashSpawner.BackContamination.Count; i++)
+            {
+                Color contaminationColor = trashSpawner.BackContamination[i].color;
+                contaminationColor.a += 0.02f;
+                trashSpawner.BackContamination[i].color = contaminationColor;
+            }
     }
 }
