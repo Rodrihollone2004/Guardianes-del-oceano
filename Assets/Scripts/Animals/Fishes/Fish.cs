@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+public class Fish : MonoBehaviour, IFisheable
 {
     [Header("Trash Contacts")]
     [SerializeField] private List<TrashType> contactTypes;
@@ -11,7 +11,7 @@ public class Fish : MonoBehaviour
     private bool isTrapped;
     private Transform trapTransform;
     private int trashLayerIndex;
-   
+
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -47,7 +47,7 @@ public class Fish : MonoBehaviour
         }
     }
 
-    public void TrapInTrash(Transform trash, Trash trashScript)
+    private void TrapInTrash(Transform trash, Trash trashScript)
     {
         if (trashScript.IsCaught || trashScript.IsFishTrapped)
             return;

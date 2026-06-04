@@ -8,7 +8,7 @@ public class AlbumSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private Color lockedColor = Color.black;
 
     private Image stickerImage;
-    private FishSO fishData;
+    private AnimalsSO fishData;
     private TextMeshProUGUI infoText; // Referencia al texto de la derecha
 
     private void Awake()
@@ -16,7 +16,7 @@ public class AlbumSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         stickerImage = GetComponent<Image>();
     }
 
-    public void Setup(FishSO data, TextMeshProUGUI displayTextField)
+    public void Setup(AnimalsSO data, TextMeshProUGUI displayTextField)
     {
         fishData = data;
         infoText = displayTextField;

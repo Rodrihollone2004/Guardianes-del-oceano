@@ -8,7 +8,7 @@ public enum TrashType
     organic
 }
 
-public class Trash : MonoBehaviour
+public class Trash : MonoBehaviour, IInteractable
 {
     [Header("Trash Configuration")]
     [SerializeField] private TrashSO trashSO;
@@ -31,18 +31,30 @@ public class Trash : MonoBehaviour
     private void Update()
     {
         if (IsContamination) return;
-        
+
         if (IsCaught && handTransform != null)
             transform.position = handTransform.position;
         else
             transform.Translate(direction * trashSO.Velocity * Time.deltaTime);
     }
 
-    public void FollowHand(Transform hand)
+    public void Interact(HandController hand)
     {
-        IsCaught = true;
-        handTransform = hand;
-    } 
+        if (hand.CurrentTrash == null && hand.CurrentSponge == null)
+        {
+            if (IsContamination) return;
+
+            if (HasFish())
+                ReleaseFish();
+            else
+            {
+                hand.CurrentTrash = this;
+                hand.JustCaught = true;
+                IsCaught = true;
+                handTransform = hand.transform;
+            }
+        }
+    }
 
     public void DropTrash()
     {
@@ -53,7 +65,7 @@ public class Trash : MonoBehaviour
         else
             CheckTrashContamination();
 
-            IsCaught = false;
+        IsCaught = false;
         handTransform = null;
     }
 

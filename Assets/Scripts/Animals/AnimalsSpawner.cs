@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FishSpawner : MonoBehaviour
+public class AnimalsSpawner : MonoBehaviour
 {
     [Header("Spawn Areas Configurations")]
     [SerializeField] private float verticalMargin = 2f;
@@ -9,7 +9,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float horizontalOffset = 1.5f;
 
     [Header("Spawn Fish Configuration")]
-    [SerializeField] private FishSO[] fishTypes;
+    [SerializeField] private AnimalsSO[] fishTypes;
     [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private Transform fishContainer;
     [SerializeField] private Camera mainCamera;
@@ -70,7 +70,7 @@ public class FishSpawner : MonoBehaviour
 
         Vector2 direction = spawnFromLeft ? Vector2.right : Vector2.left;
 
-        FishSO selectedSO = fishTypes[Random.Range(0, fishTypes.Length)];
+        AnimalsSO selectedSO = fishTypes[Random.Range(0, fishTypes.Length)];
 
         GameObject fishObj = Instantiate(selectedSO.prefab, spawnPos, Quaternion.identity, fishContainer);
         currentSpawn++;
@@ -78,7 +78,7 @@ public class FishSpawner : MonoBehaviour
         if (fishObj.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr))
             sr.flipX = !spawnFromLeft;
 
-        if (fishObj.TryGetComponent<Fish>(out Fish fishScript))
+        if (fishObj.TryGetComponent<IFisheable>(out IFisheable fishScript))
         {
             float randomSpeed = Random.Range(selectedSO.minVelocity, selectedSO.maxVelocity);
             fishScript.Initialize(direction, randomSpeed);

@@ -86,7 +86,7 @@ public class TrashSpawner : MonoBehaviour
                 Color color = item.color;
                 if (color.a > 1f)
                     continue;
-                color.a += 0.1f;
+                color.a += 0.02f;
                 item.color = color;
             }
 
@@ -96,7 +96,7 @@ public class TrashSpawner : MonoBehaviour
                 Color color = item.color;
                 if (color.a < 0f)
                     continue;
-                color.a -= 0.1f;
+                color.a -= 0.02f;
                 item.color = color;
             }
     }

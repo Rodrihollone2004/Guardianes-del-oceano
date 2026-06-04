@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Fish", menuName = "Fish Data", order = 0)]
-public class FishSO : ScriptableObject
+public class AnimalsSO : ScriptableObject
 {
     public string fishName;
     [TextArea] public string description;

@@ -7,7 +7,6 @@ public class AlbumUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject slotPrefab;      
     [SerializeField] private Transform container;        
-    [SerializeField] private TextMeshProUGUI infoText;   
 
     private List<AlbumSlot> spawnedSlots = new List<AlbumSlot>();
 
@@ -18,15 +17,16 @@ public class AlbumUI : MonoBehaviour
 
     public void RefreshAlbum()
     {
-        List<FishSO> allFish = GameManager.Instance.GetAllFish();
+        List<AnimalsSO> allFish = GameManager.Instance.GetAllFish();
 
         if (spawnedSlots.Count == 0)
         {
-            foreach (FishSO fish in allFish)
+            foreach (AnimalsSO fish in allFish)
             {
                 GameObject newSlotObj = Instantiate(slotPrefab, container);
                 if (newSlotObj.TryGetComponent<AlbumSlot>(out AlbumSlot slot))
                 {
+                    TextMeshProUGUI infoText = newSlotObj.GetComponentInChildren<TextMeshProUGUI>();
                     slot.Setup(fish, infoText);
                     spawnedSlots.Add(slot);
                 }
@@ -37,7 +37,10 @@ public class AlbumUI : MonoBehaviour
             for (int i = 0; i < allFish.Count; i++)
             {
                 if (i < spawnedSlots.Count)
+                {
+                    TextMeshProUGUI infoText = spawnedSlots[i].GetComponentInChildren<TextMeshProUGUI>();
                     spawnedSlots[i].Setup(allFish[i], infoText);
+                }
             }
         }
     }

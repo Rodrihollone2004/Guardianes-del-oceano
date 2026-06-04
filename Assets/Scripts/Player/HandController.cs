@@ -11,8 +11,13 @@ public class HandController : MonoBehaviour
     private Vector3 velocity;
     private Camera mainCamera;
     private Trash currentTrash;
+    private Sponge currentSponge;
 
     private bool justCaught;
+
+    public Trash CurrentTrash { get => currentTrash; set => currentTrash = value; }
+    public bool JustCaught { get => justCaught; set => justCaught = value; }
+    public Sponge CurrentSponge { get => currentSponge; set => currentSponge = value; }
 
     private void Start()
     {
@@ -41,34 +46,29 @@ public class HandController : MonoBehaviour
 
             if (hit != null)
             {
-                if (hit.TryGetComponent<SewagePipe>(out var pipe))
+                if (hit.TryGetComponent<IInteractable>(out var interactable))
                 {
-                    pipe.Hit();
+                    interactable.Interact(this);
                     return;
-                }
-
-                if (currentTrash == null && hit.TryGetComponent<Trash>(out var trash))
-                {
-                    if (trash.IsContamination)
-                        return;
-
-                    if (trash.HasFish())
-                        trash.ReleaseFish();
-                    else
-                    {
-                        currentTrash = trash;
-                        currentTrash.FollowHand(transform);
-                        justCaught = true;
-                    }
                 }
             }
         }
 
-        if (!InputManager.Instance.IsDraging && currentTrash != null)
+        if (!InputManager.Instance.IsDraging && currentTrash != null ||
+            !InputManager.Instance.IsDraging && currentSponge != null)
         {
             if (justCaught) { justCaught = false; return; }
-            currentTrash.DropTrash();
-            currentTrash = null;
+            
+            if (currentTrash != null)
+            {
+                currentTrash.DropTrash();
+                currentTrash = null;
+            }
+            else if (currentSponge != null)
+            {
+                currentSponge.DropSponge();
+                currentSponge = null;
+            }
         }
     }
 

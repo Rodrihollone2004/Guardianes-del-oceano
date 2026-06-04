@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FishTrigger : MonoBehaviour
+public class AnimalsTrigger : MonoBehaviour
 {
     private int fishLayerIndex;
 

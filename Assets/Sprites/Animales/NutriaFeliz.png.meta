@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 3111f27ffe021b040b83609c24e6cce5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7579404308703185005
+    second: NutriaFeliz_0
+  - first:
+      213: -5911499863939504533
+    second: NutriaFeliz_1
+  - first:
+      213: 7565801377878184722
+    second: NutriaFeliz_2
+  - first:
+      213: 4872738378383122116
+    second: NutriaFeliz_3
+  - first:
+      213: 4474819588459048685
+    second: NutriaFeliz_4
+  - first:
+      213: -3652253541568134936
+    second: NutriaFeliz_5
+  - first:
+      213: -1811052678962347698
+    second: NutriaFeliz_6
+  - first:
+      213: 7143041929504910386
+    second: NutriaFeliz_7
+  - first:
+      213: 9076396626069630153
+    second: NutriaFeliz_8
+  - first:
+      213: 2397037271149730693
+    second: NutriaFeliz_9
+  - first:
+      213: -6684392077599041468
+    second: NutriaFeliz_10
+  - first:
+      213: 9089454355921771339
+    second: NutriaFeliz_11
+  - first:
+      213: 5546255543475025109
+    second: NutriaFeliz_12
+  - first:
+      213: 5112870658196452572
+    second: NutriaFeliz_13
+  - first:
+      213: -4668108397138138503
+    second: NutriaFeliz_14
+  - first:
+      213: -4086625213171082275
+    second: NutriaFeliz_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NutriaFeliz_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 113
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d688155bf047f2960800000000000000
+      internalID: 7579404308703185005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 966
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66ad18b13226fda0800000000000000
+      internalID: -5911499863939504533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 448
+        width: 8
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213179194402ff860800000000000000
+      internalID: 7565801377878184722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 388
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce50fefcb17f9340800000000000000
+      internalID: 4872738378383122116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 326
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deeaf0405b0c91e30800000000000000
+      internalID: 4474819588459048685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 264
+        width: 8
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e04b2121c6905dc0800000000000000
+      internalID: -3652253541568134936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 828
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e410ee01f29ddd6e0800000000000000
+      internalID: -1811052678962347698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 822
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23c6cd71ace212360800000000000000
+      internalID: 7143041929504910386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 728
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc2f6184a6d5fd70800000000000000
+      internalID: 9076396626069630153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 622
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b5044b2bcf34120800000000000000
+      internalID: 2397037271149730693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_10
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 335
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448164322d44c33a0800000000000000
+      internalID: -6684392077599041468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_11
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 310
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b18d6249a342e70800000000000000
+      internalID: 9089454355921771339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_12
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 55
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4be5e080248fc40800000000000000
+      internalID: 5546255543475025109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 15
+        width: 7
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd4315446c094f640800000000000000
+      internalID: 5112870658196452572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 1400
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a209f352c873fb0800000000000000
+      internalID: -4668108397138138503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NutriaFeliz_15
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 954
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb58ce35046947c0800000000000000
+      internalID: -4086625213171082275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NutriaFeliz_0: 7579404308703185005
+      NutriaFeliz_1: -5911499863939504533
+      NutriaFeliz_10: -6684392077599041468
+      NutriaFeliz_11: 9089454355921771339
+      NutriaFeliz_12: 5546255543475025109
+      NutriaFeliz_13: 5112870658196452572
+      NutriaFeliz_14: -4668108397138138503
+      NutriaFeliz_15: -4086625213171082275
+      NutriaFeliz_2: 7565801377878184722
+      NutriaFeliz_3: 4872738378383122116
+      NutriaFeliz_4: 4474819588459048685
+      NutriaFeliz_5: -3652253541568134936
+      NutriaFeliz_6: -1811052678962347698
+      NutriaFeliz_7: 7143041929504910386
+      NutriaFeliz_8: 9076396626069630153
+      NutriaFeliz_9: 2397037271149730693
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -23,7 +23,7 @@ public class TrashTrigger : MonoBehaviour
         {
             Trash trash = collision.gameObject.GetComponent<Trash>();
 
-            if (!trash.IsCaught)
+            if (trash != null && !trash.IsCaught)
             {
                 trash.SetToBottom();
 

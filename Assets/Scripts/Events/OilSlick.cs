@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
-public class SewagePipe : MonoBehaviour, ILevelEvent, IInteractable
+public class OilSlick : MonoBehaviour, ILevelEvent
 {
     [Header("Settings")]
-    [SerializeField] private int health = 3;
+    [SerializeField] private int maxHealth = 3;
     [SerializeField] private float contaminationPerSecond = 1f;
+
+    private int health;
 
     private float tickTimer;
     private SpriteRenderer spriteRenderer;
@@ -15,15 +17,17 @@ public class SewagePipe : MonoBehaviour, ILevelEvent, IInteractable
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         trashSpawner = GameManager.Instance.TrashSpawner;
+
+        SetPositionAndRandomized();
     }
 
     public void Execute(System.Action onComplete)
     {
-        health = 3;
+        health = maxHealth;
         tickTimer = 0f;
         onDestroyCallback = onComplete;
 
-        SetPositionAndRotation();
+        SetAlpha(1.0f);
     }
 
     void Update()
@@ -32,15 +36,16 @@ public class SewagePipe : MonoBehaviour, ILevelEvent, IInteractable
         if (tickTimer >= 1f)
         {
             GameManager.Instance.AddRawContamination(contaminationPerSecond);
-            ContaminationSewagePipe();
-            GeneralContamination();
             tickTimer = 0f;
         }
     }
 
-    public void Interact(HandController hand = null)
+    public void CleanOil()
     {
         health--;
+
+        float newAlpha = (float)health / maxHealth;
+        SetAlpha(newAlpha);
 
         if (health <= 0)
         {
@@ -49,40 +54,42 @@ public class SewagePipe : MonoBehaviour, ILevelEvent, IInteractable
         }
     }
 
-    private void SetPositionAndRotation()
+    private void SetAlpha(float alpha)
+    {
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = alpha;
+            spriteRenderer.color = color;
+        }
+    }
+
+    private void SetPositionAndRandomized()
     {
         Camera cam = Camera.main;
         float z = Mathf.Abs(cam.transform.position.z);
 
-        Vector3[] spots = {
-            new Vector3(0.5f, 1f, z), 
-            new Vector3(-0f, 0.5f, z), 
-            new Vector3(1f, 0.5f, z)   
-        };
+        Vector3 randomViewport;
+        bool isInsideForbiddenZone = true;
 
-        int randomIndex = Random.Range(0, spots.Length);
-        transform.position = cam.ViewportToWorldPoint(spots[randomIndex]);
-
-        transform.rotation = Quaternion.identity;
-        transform.localScale = Vector3.one;
-
-        switch (randomIndex)
+        do
         {
-            case 0:
-                spriteRenderer.flipX = false;
-                transform.eulerAngles = new Vector3(0, 0, -90f);
-                break;
+            float x = Random.Range(0.15f, 0.85f);
+            float y = Random.Range(0.15f, 0.85f);
+            randomViewport = new Vector3(x, y, z);
 
-            case 1:
-                spriteRenderer.flipX = false;
-                transform.eulerAngles = Vector3.zero;
-                break;
+            bool isMiddleX = x > 0.35f && x < 0.65f;
+            bool isMiddleY = y > 0.35f && y < 0.65f;
 
-            case 2:
-                spriteRenderer.flipX = true;
-                transform.eulerAngles = Vector3.zero;
-                break;
-        }
+            if (!(isMiddleX && isMiddleY))
+            {
+                isInsideForbiddenZone = false;
+            }
+        } while (isInsideForbiddenZone);
+
+        transform.position = cam.ViewportToWorldPoint(randomViewport);
+
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360f));
     }
 
     public void ContaminationSewagePipe()

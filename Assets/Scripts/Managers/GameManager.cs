@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public UIManager UIManager;
 
     [Header("Album Configuration")]
-    [SerializeField] private List<FishSO> allFishInGame;
+    [SerializeField] private List<AnimalsSO> allFishInGame;
     private int currentUnlockIndex = 0;
 
     [Header("Game Settings")]
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public List<FishSO> GetAllFish() => allFishInGame;
+    public List<AnimalsSO> GetAllFish() => allFishInGame;
 
     public void RestartValues()
     {
