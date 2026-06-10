@@ -12,9 +12,7 @@ public class Otter : MonoBehaviour, IFisheable, IInteractable
 
     private float velocity;
     private Vector2 moveDirection;
-    private bool isTrapped;
     private bool isContaminated;
-    private Transform trapTransform;
     private int contaminationLayerIndex;
 
     private SpriteRenderer spriteRenderer;

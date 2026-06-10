@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour, IFisheable
 {
+    [Header("Rescue Settings")]
+    [SerializeField] private float rescueHoldTime = 0f;
+    public float RescueHoldTime => rescueHoldTime;
+
     [Header("Trash Contacts")]
     [SerializeField] private List<TrashType> contactTypes;
 

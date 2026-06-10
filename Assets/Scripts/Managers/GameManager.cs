@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Managers References")]
-    
+
     [HideInInspector] public TrashSpawner TrashSpawner;
     [HideInInspector] public TrashTrigger TrashTrigger;
     [HideInInspector] public UIManager UIManager;
@@ -20,14 +20,19 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float loseThreshold = 60f;
 
+    private bool hasUnseenFish = false;
+
     private int totalTrashSpawned;
     private int trashProcessed;
     private float currentContamination;
 
     private bool isGameOver;
+    private bool isAlbum;
     private bool isPaused;
 
     public bool IsGameOver { get => isGameOver; set => isGameOver = value; }
+    public bool IsAlbum { get => isAlbum; set => isAlbum = value; }
+    public bool IsPaused { get => isPaused; set => isPaused = value; }
 
     private void Awake()
     {
@@ -54,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (InputManager.Instance.WasPausePressedThisFrame() && !isGameOver)
+        if (InputManager.Instance.WasPausePressedThisFrame() && !isGameOver && !isAlbum)
             TogglePause();
     }
 
@@ -131,7 +136,7 @@ public class GameManager : MonoBehaviour
 
         if (win)
         {
-            UnlockNextFish(); 
+            UnlockNextFish();
             UIManager.ShowWinScreen();
         }
         else UIManager.ShowLoseScreen();
@@ -142,12 +147,21 @@ public class GameManager : MonoBehaviour
         if (currentUnlockIndex < allFishInGame.Count)
         {
             allFishInGame[currentUnlockIndex].isUnlocked = true;
-            Debug.Log($"Desbloqueado: {allFishInGame[currentUnlockIndex].fishName}");
+            hasUnseenFish = true;
+
+            if (UIManager != null && UIManager.AlbumNotification != null)
+                UIManager.AlbumNotification.NotifyNewFish();
 
             currentUnlockIndex++;
         }
     }
 
+    public void ClearUnseenFish()
+    {
+        hasUnseenFish = false;
+    }
+
+    public bool HasUnseenFish() => hasUnseenFish;
     public List<AnimalsSO> GetAllFish() => allFishInGame;
 
     public void RestartValues()
@@ -155,6 +169,21 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
 
         totalTrashSpawned = TrashSpawner.SpawnLimit;
+        currentContamination = 0;
+        trashProcessed = 0;
+    }
+
+    public void ResetFullGameProgression()
+    {
+        currentUnlockIndex = 0;
+        hasUnseenFish = false;
+        isGameOver = false;
+
+        if (allFishInGame != null)
+            foreach (AnimalsSO fish in allFishInGame)
+                if (fish != null)
+                    fish.isUnlocked = false;
+
         currentContamination = 0;
         trashProcessed = 0;
     }

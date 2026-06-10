@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("UI Text & Panels")]
     [SerializeField] private TMP_Text contaminationText;
     [SerializeField] private TMP_Text alertText;
     [SerializeField] private GameObject winPanel;
@@ -11,10 +12,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject albumPanel;
 
+    [Header("Feedback UI")]
+    [SerializeField] private AlbumNotification albumNotification;
+
+    public AlbumNotification AlbumNotification { get => albumNotification; set => albumNotification = value; }
+
     private void Start()
     {
         GameManager.Instance.UIManager = this;
         UpdateContamination(0);
+
+        if (GameManager.Instance.HasUnseenFish() && albumNotification != null)
+            albumNotification.NotifyNewFish();
     }
 
     public void UpdateContamination(float percentage)
@@ -42,18 +51,31 @@ public class UIManager : MonoBehaviour
 
     public void AlbumSet()
     {
+        GameManager.Instance.IsAlbum = true;
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        if (albumNotification != null)
+            albumNotification.ClearNotification();
+
+        GameManager.Instance.ClearUnseenFish();
+
         ShowAlbumScreen();
         Time.timeScale = 0f;
     }
 
     public void HideAlbum()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        ResumeAlbum();
-        Time.timeScale = 1f;
+        GameManager.Instance.IsAlbum = false;
+        ResumeAlbum(); 
+
+        if (!GameManager.Instance.IsGameOver && !GameManager.Instance.IsPaused)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 1f;
+        }
     }
 
     public void HidePause()
@@ -65,9 +87,14 @@ public class UIManager : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
-        SceneManager.LoadScene(0);
+
+        if (albumNotification != null)
+            albumNotification.ClearNotification();
+
+        GameManager.Instance.ResetFullGameProgression();
+
         Time.timeScale = 1f;
-        GameManager.Instance.IsGameOver = false;
+        SceneManager.LoadScene(0);
     }
 
     public void NextLevel()

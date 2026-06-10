@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public enum TrashType
 {
@@ -17,6 +18,8 @@ public class Trash : MonoBehaviour, IInteractable
     private Transform handTransform;
 
     private Fish trappedFish;
+
+    private Tween rescueTween;
 
     public bool IsCaught { get; private set; }
     public bool IsFishTrapped { get; private set; }
@@ -45,7 +48,26 @@ public class Trash : MonoBehaviour, IInteractable
             if (IsContamination) return;
 
             if (HasFish())
-                ReleaseFish();
+            {
+                float holdTime = trappedFish.RescueHoldTime;
+
+                if (holdTime <= 0f)
+                    ReleaseFish(); 
+                else
+                {
+                    rescueTween?.Kill();
+                    transform.DOKill();
+
+                    transform.DOShakeRotation(holdTime, 50f, 10).SetEase(Ease.Linear);
+
+                    rescueTween = DOVirtual.DelayedCall(holdTime, () =>
+                    {
+                        ReleaseFish();
+                        transform.DOKill();
+                        transform.rotation = Quaternion.identity;
+                    });
+                }
+            }
             else
             {
                 hand.CurrentTrash = this;
@@ -53,6 +75,16 @@ public class Trash : MonoBehaviour, IInteractable
                 IsCaught = true;
                 handTransform = hand.transform;
             }
+        }
+    }
+
+    public void CancelInteract()
+    {
+        if (rescueTween != null && rescueTween.IsActive())
+        {
+            rescueTween.Kill();
+            transform.DOKill();
+            transform.rotation = Quaternion.identity;
         }
     }
 
@@ -73,11 +105,13 @@ public class Trash : MonoBehaviour, IInteractable
     {
         if (trashSO.Type == recycle.RecycleType)
         {
+            recycle.AnimateSuccess(); 
             GameManager.Instance.NotifyTrashRecycled();
             Destroy(gameObject);
         }
         else
         {
+            recycle.AnimateError(); 
             GameManager.Instance.NotifyWrongRecycle();
             Destroy(gameObject);
         }

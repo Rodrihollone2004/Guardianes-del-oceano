@@ -15,6 +15,8 @@ public class HandController : MonoBehaviour
 
     private bool justCaught;
 
+    private Trash rescuingTrash;
+
     public Trash CurrentTrash { get => currentTrash; set => currentTrash = value; }
     public bool JustCaught { get => justCaught; set => justCaught = value; }
     public Sponge CurrentSponge { get => currentSponge; set => currentSponge = value; }
@@ -46,6 +48,9 @@ public class HandController : MonoBehaviour
 
             if (hit != null)
             {
+                if (hit.TryGetComponent<Trash>(out var trash))
+                    rescuingTrash = trash;
+                
                 if (hit.TryGetComponent<IInteractable>(out var interactable))
                 {
                     interactable.Interact(this);
@@ -54,21 +59,34 @@ public class HandController : MonoBehaviour
             }
         }
 
-        if (!InputManager.Instance.IsDraging && currentTrash != null ||
-            !InputManager.Instance.IsDraging && currentSponge != null)
+        if (!InputManager.Instance.IsDraging)
         {
-            if (justCaught) { justCaught = false; return; }
-            
-            if (currentTrash != null)
+            if (rescuingTrash != null)
             {
-                currentTrash.DropTrash();
-                currentTrash = null;
+                rescuingTrash.CancelInteract();
+                rescuingTrash = null;
             }
-            else if (currentSponge != null)
+
+            if (currentTrash != null || currentSponge != null)
             {
-                currentSponge.DropSponge();
-                currentSponge = null;
+                if (justCaught) { justCaught = false; return; }
+
+                if (currentTrash != null)
+                {
+                    currentTrash.DropTrash();
+                    currentTrash = null;
+                }
+                else if (currentSponge != null)
+                {
+                    currentSponge.DropSponge();
+                    currentSponge = null;
+                }
             }
+        }
+        else
+        {
+            if (rescuingTrash != null && !rescuingTrash.HasFish())
+                rescuingTrash = null;
         }
     }
 
