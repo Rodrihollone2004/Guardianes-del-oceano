@@ -1,24 +1,35 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("UI Text & Panels")]
+    [Header("UI Texts")]
     [SerializeField] private TMP_Text contaminationText;
     [SerializeField] private TMP_Text alertText;
-    [SerializeField] private GameObject winPanel;
-    [SerializeField] private GameObject losePanel;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject albumPanel;
+
+    [Header("UI Animated Panels")]
+    [SerializeField] private CanvasGroup fadePanel;
+    [SerializeField] private UIPanel winPanel;
+    [SerializeField] private UIPanel losePanel;
+    [SerializeField] private UIPanel pausePanel;
+    [SerializeField] private UIPanel albumPanel;
+    [SerializeField] private UIPanel mainMenuPanel;
+    [SerializeField] private UIPanel optionsPanel;
 
     [Header("Feedback UI")]
     [SerializeField] private AlbumNotification albumNotification;
+
+    private UIPanel actualPanel;
 
     public AlbumNotification AlbumNotification { get => albumNotification; set => albumNotification = value; }
 
     private void Start()
     {
+        StartGame();
+
         GameManager.Instance.UIManager = this;
         UpdateContamination(0);
 
@@ -26,17 +37,58 @@ public class UIManager : MonoBehaviour
             albumNotification.NotifyNewFish();
     }
 
+    private void StartGame()
+    {
+        if (mainMenuPanel != null)
+        {
+            actualPanel = mainMenuPanel;
+            mainMenuPanel.Show();
+        }
+
+        fadePanel.alpha = 1f;
+
+        GameManager.Instance.SetTransitioning(true);
+        fadePanel.DOFade(0f, 1f).OnComplete(() =>
+        {
+            GameManager.Instance.SetTransitioning(false); 
+        });
+    }
+
     public void UpdateContamination(float percentage)
     {
         contaminationText.text = $"CONTAMINATION: {Mathf.RoundToInt(percentage)}";
     }
 
-    public void ShowWinScreen() => winPanel.SetActive(true);
-    public void ShowLoseScreen() => losePanel.SetActive(true);
-    public void ShowPauseScreen() => pausePanel.SetActive(true);
-    public void ShowAlbumScreen() => albumPanel.SetActive(true);
-    public void ResumeAlbum() => albumPanel.SetActive(false);
-    public void ResumeGame() => pausePanel.SetActive(false);
+    private void OpenPanel(UIPanel newPanel)
+    {
+        if (actualPanel == newPanel) return;
+
+        if (actualPanel != null)
+            actualPanel.Hide();
+
+        newPanel.Show();
+        actualPanel = newPanel;
+    }
+
+    public void CloseCurrentPanel()
+    {
+        if (actualPanel != null)
+        {
+            actualPanel.Hide();
+            actualPanel = null;
+        }
+    }
+
+    public void ShowMenuScreen() => OpenPanel(mainMenuPanel);
+    public void ShowWinScreen() => OpenPanel(winPanel);
+    public void ShowLoseScreen() => OpenPanel(losePanel);
+    public void ShowPauseScreen() => OpenPanel(pausePanel);
+    public void ShowOptionsScreen() => OpenPanel(optionsPanel);
+    public void ShowAlbumScreen() => albumPanel.Show();
+
+    public void ResumeAlbum() => albumPanel.Hide();
+    public void ResumeGame() => CloseCurrentPanel();
+    public void BackOptions() => OpenPanel(pausePanel);
 
     public void ShowAlert(string message, Color color)
     {
@@ -68,7 +120,7 @@ public class UIManager : MonoBehaviour
     public void HideAlbum()
     {
         GameManager.Instance.IsAlbum = false;
-        ResumeAlbum(); 
+        ResumeAlbum();
 
         if (!GameManager.Instance.IsGameOver && !GameManager.Instance.IsPaused)
         {
@@ -85,6 +137,8 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        GameManager.Instance.SetTransitioning(true);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
 
@@ -94,7 +148,16 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.ResetFullGameProgression();
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+
+        Sequence playSequence = DOTween.Sequence();
+        playSequence.Append(fadePanel.DOFade(1f, 1f));
+
+        playSequence.OnComplete(() =>
+        {
+            DOTween.KillAll();
+            SceneManager.LoadScene(0);
+        });
+
     }
 
     public void NextLevel()
@@ -103,13 +166,21 @@ public class UIManager : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
+            GameManager.Instance.SetTransitioning(true);
+
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
 
-            SceneManager.LoadScene(nextSceneIndex);
+            Sequence playSequence = DOTween.Sequence();
+            playSequence.Append(fadePanel.DOFade(1f, 1f));
 
-            GameManager.Instance.RestartValues();
+            playSequence.OnComplete(() =>
+            {
+                DOTween.KillAll();
+                SceneManager.LoadScene(nextSceneIndex);
+                GameManager.Instance.RestartValues();
+            });
         }
     }
 

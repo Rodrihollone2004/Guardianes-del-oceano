@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver;
     private bool isAlbum;
     private bool isPaused;
+    private bool isTransitioning;
 
     public bool IsGameOver { get => isGameOver; set => isGameOver = value; }
     public bool IsAlbum { get => isAlbum; set => isAlbum = value; }
@@ -59,8 +60,15 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (isTransitioning) return;
+
         if (InputManager.Instance.WasPausePressedThisFrame() && !isGameOver && !isAlbum)
             TogglePause();
+    }
+
+    public void SetTransitioning(bool state)
+    {
+        isTransitioning = state;
     }
 
     public void TogglePause()
@@ -167,6 +175,8 @@ public class GameManager : MonoBehaviour
     public void RestartValues()
     {
         isGameOver = false;
+        isTransitioning = false; 
+        isPaused = false;
 
         totalTrashSpawned = TrashSpawner.SpawnLimit;
         currentContamination = 0;
