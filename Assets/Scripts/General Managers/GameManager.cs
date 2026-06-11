@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +7,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Managers References")]
-
     [HideInInspector] public TrashSpawner TrashSpawner;
     [HideInInspector] public TrashTrigger TrashTrigger;
     [HideInInspector] public UIManager UIManager;
@@ -37,18 +35,21 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
-        else { Destroy(gameObject); return; }
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
-
 
     private void Start()
     {
-        TrashTrigger.OnContamination += HandleTrashToBottom;
-
-        totalTrashSpawned = TrashSpawner.SpawnLimit;
-        currentContamination = 0;
-        trashProcessed = 0;
+        SetupSceneDependencies();
     }
 
     private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,11 +59,12 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         if (TrashTrigger != null) TrashTrigger.OnContamination -= HandleTrashToBottom;
     }
+
     private void Update()
     {
         if (isTransitioning) return;
 
-        if (InputManager.Instance.WasPausePressedThisFrame() && !isGameOver && !isAlbum)
+        if (InputManager.Instance != null && InputManager.Instance.WasPausePressedThisFrame() && !isGameOver && !isAlbum)
             TogglePause();
     }
 
@@ -76,8 +78,11 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
 
-        if (isPaused) UIManager.ShowPauseScreen();
-        else UIManager.ResumeGame();
+        if (UIManager != null)
+        {
+            if (isPaused) UIManager.ShowPauseScreen();
+            else UIManager.ResumeGame();
+        }
 
         Cursor.visible = isPaused;
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Confined;
@@ -88,7 +93,7 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         currentContamination += amount;
-        UIManager.UpdateContamination(currentContamination);
+        if (UIManager != null) UIManager.UpdateContamination(currentContamination);
 
         if (currentContamination >= loseThreshold)
             GameOver(false);
@@ -109,9 +114,8 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver) return;
 
-        UIManager.ShowAlert("WRONG BIN!", Color.red);
+        if (UIManager != null) UIManager.ShowAlert("WRONG BIN!", Color.red);
 
-        // Penalización: Suma contaminación como si hubiera caído al fondo
         float penalty = 100f / totalTrashSpawned;
         AddRawContamination(penalty);
 
@@ -145,9 +149,12 @@ public class GameManager : MonoBehaviour
         if (win)
         {
             UnlockNextFish();
-            UIManager.ShowWinScreen();
+            if (UIManager != null) UIManager.ShowWinScreen();
         }
-        else UIManager.ShowLoseScreen();
+        else
+        {
+            if (UIManager != null) UIManager.ShowLoseScreen();
+        }
     }
 
     private void UnlockNextFish()
@@ -164,21 +171,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ClearUnseenFish()
-    {
-        hasUnseenFish = false;
-    }
-
+    public void ClearUnseenFish() => hasUnseenFish = false;
     public bool HasUnseenFish() => hasUnseenFish;
     public List<AnimalsSO> GetAllFish() => allFishInGame;
 
     public void RestartValues()
     {
         isGameOver = false;
-        isTransitioning = false; 
+        isTransitioning = false;
         isPaused = false;
 
-        totalTrashSpawned = TrashSpawner.SpawnLimit;
+        if (TrashSpawner != null)
+            totalTrashSpawned = TrashSpawner.SpawnLimit;
+
         currentContamination = 0;
         trashProcessed = 0;
     }
@@ -197,17 +202,25 @@ public class GameManager : MonoBehaviour
         currentContamination = 0;
         trashProcessed = 0;
     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
+        SetupSceneDependencies();
+    }
+
+    private void SetupSceneDependencies()
+    {
+        if (TrashTrigger != null)
+            TrashTrigger.OnContamination -= HandleTrashToBottom;
+
         TrashSpawner = FindFirstObjectByType<TrashSpawner>();
         TrashTrigger = FindFirstObjectByType<TrashTrigger>();
         UIManager = FindFirstObjectByType<UIManager>();
 
-        if (TrashTrigger != null)
+        if (TrashSpawner != null && TrashTrigger != null)
+        {
             TrashTrigger.OnContamination += HandleTrashToBottom;
-
-        if (TrashSpawner != null)
             RestartValues();
+        }
     }
 }

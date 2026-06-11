@@ -10,10 +10,18 @@ public class OptionsPanel : UIPanel
     {
         gameObject.SetActive(true);
         panelOpciones.anchoredPosition = new Vector2(-1000f, 0);
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
 
         Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Append(canvasGroup.DOFade(1f, duracion));
         seq.Join(panelOpciones.DOAnchorPosX(0, duracion).SetEase(Ease.OutBack));
+        seq.OnComplete(() =>
+        {
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.interactable = true;
+            GameManager.Instance.SetTransitioning(false);
+        });
 
         return seq;
     }

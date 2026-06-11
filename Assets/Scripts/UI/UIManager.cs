@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Feedback UI")]
     [SerializeField] private AlbumNotification albumNotification;
+    [SerializeField] private AudioClip clicButton;
 
     private UIPanel actualPanel;
 
@@ -50,13 +51,14 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SetTransitioning(true);
         fadePanel.DOFade(0f, 1f).OnComplete(() =>
         {
-            GameManager.Instance.SetTransitioning(false); 
+            GameManager.Instance.SetTransitioning(false);
         });
     }
 
     public void UpdateContamination(float percentage)
     {
-        contaminationText.text = $"CONTAMINATION: {Mathf.RoundToInt(percentage)}";
+        if (contaminationText != null)
+            contaminationText.text = $"CONTAMINATION: {Mathf.RoundToInt(percentage)}";
     }
 
     private void OpenPanel(UIPanel newPanel)
@@ -66,6 +68,7 @@ public class UIManager : MonoBehaviour
         if (actualPanel != null)
             actualPanel.Hide();
 
+        AudioManager.Instance.PlaySFX2D(clicButton);
         newPanel.Show();
         actualPanel = newPanel;
     }
@@ -74,6 +77,7 @@ public class UIManager : MonoBehaviour
     {
         if (actualPanel != null)
         {
+            AudioManager.Instance.PlaySFX2D(clicButton);
             actualPanel.Hide();
             actualPanel = null;
         }
@@ -88,7 +92,7 @@ public class UIManager : MonoBehaviour
 
     public void ResumeAlbum() => albumPanel.Hide();
     public void ResumeGame() => CloseCurrentPanel();
-    public void BackOptions() => OpenPanel(pausePanel);
+    public void BackOptions(UIPanel panelUI) => OpenPanel(panelUI);
 
     public void ShowAlert(string message, Color color)
     {
@@ -103,6 +107,7 @@ public class UIManager : MonoBehaviour
 
     public void AlbumSet()
     {
+        AudioManager.Instance.PlaySFX2D(clicButton);
         GameManager.Instance.IsAlbum = true;
 
         Cursor.visible = true;
@@ -119,6 +124,7 @@ public class UIManager : MonoBehaviour
 
     public void HideAlbum()
     {
+        AudioManager.Instance.PlaySFX2D(clicButton);
         GameManager.Instance.IsAlbum = false;
         ResumeAlbum();
 
@@ -130,13 +136,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HidePause()
-    {
-        GameManager.Instance.TogglePause();
-    }
+    public void HidePause() => GameManager.Instance.TogglePause();
 
     public void RestartGame()
     {
+        AudioManager.Instance.PlaySFX2D(clicButton);
         GameManager.Instance.SetTransitioning(true);
 
         Cursor.visible = false;
@@ -155,13 +159,13 @@ public class UIManager : MonoBehaviour
         playSequence.OnComplete(() =>
         {
             DOTween.KillAll();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         });
-
     }
 
     public void NextLevel()
     {
+        AudioManager.Instance.PlaySFX2D(clicButton);
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -184,6 +188,30 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void QuitGame() => Application.Quit();
+    public void BackToMenu()
+    {
+        AudioManager.Instance.PlaySFX2D(clicButton);
+        GameManager.Instance.SetTransitioning(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
+        Time.timeScale = 1f;
+
+        Sequence playSequence = DOTween.Sequence();
+        playSequence.Append(fadePanel.DOFade(1f, 1f));
+
+        playSequence.OnComplete(() =>
+        {
+            DOTween.KillAll();
+            SceneManager.LoadScene(0);
+        });
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        AudioManager.Instance.PlaySFX2D(clicButton);
+    }
 }
 

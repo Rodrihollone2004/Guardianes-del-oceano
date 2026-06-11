@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 5232733102155924179}
   - component: {fileID: 7877461655597669930}
   - component: {fileID: 3311793011537895917}
+  - component: {fileID: 5202793885272843843}
   m_Layer: 5
   m_Name: slot Prefab
   m_TagString: Untagged
@@ -227,3 +228,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlbumSlot
   lockedColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &5202793885272843843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703494746558130738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9f87db208624b45a196171f82a0d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverTween

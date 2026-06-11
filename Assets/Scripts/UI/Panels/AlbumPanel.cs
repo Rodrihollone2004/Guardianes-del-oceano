@@ -9,10 +9,18 @@ public class AlbumPanel : UIPanel
     public override Tween Show()
     {
         gameObject.SetActive(true);
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
 
         Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Append(canvasGroup.DOFade(1f, duracionAnimacion));
         seq.Join(containerBotones.DOAnchorPosY(0, duracionAnimacion).SetEase(Ease.OutBack));
+        seq.OnComplete(() =>
+        {
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.interactable = true;
+            GameManager.Instance.SetTransitioning(false);
+        });
 
         return seq;
     }

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using DG.Tweening;
 
-public class AlbumSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class AlbumSlot : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*/ IPointerClickHandler
 {
     [Header("UI References")]
     [SerializeField] private Color lockedColor = Color.black;
@@ -40,15 +40,15 @@ public class AlbumSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        transform.DOScale(1.1f, 0.2f).SetEase(Ease.OutBack).SetUpdate(true);
-    }
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
+    //    transform.DOScale(1.1f, 0.2f).SetEase(Ease.OutBack).SetUpdate(true);
+    //}
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        transform.DOScale(1f, 0.2f).SetEase(Ease.OutQuad).SetUpdate(true);
-    }
+    //public void OnPointerExit(PointerEventData eventData)
+    //{
+    //    transform.DOScale(1f, 0.2f).SetEase(Ease.OutQuad).SetUpdate(true);
+    //}
 
     public void OnPointerClick(PointerEventData eventData)
     {
