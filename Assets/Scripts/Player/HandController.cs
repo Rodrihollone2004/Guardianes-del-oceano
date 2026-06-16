@@ -8,6 +8,11 @@ public class HandController : MonoBehaviour
     [Header("Catch Configuration")]
     [SerializeField] private LayerMask interactionLayer;
 
+    [Header("Feedback Hand")]
+    [SerializeField] private Sprite normalHand;
+    [SerializeField] private Sprite closeHand;
+    private SpriteRenderer spriteRenderer;
+
     private Vector3 velocity;
     private Camera mainCamera;
     private Trash currentTrash;
@@ -23,6 +28,7 @@ public class HandController : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
@@ -36,6 +42,8 @@ public class HandController : MonoBehaviour
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
         Vector3 clampedPosition = ClampPositionToScreen(worldPosition);
         transform.position = Vector3.SmoothDamp(transform.position, clampedPosition, ref velocity, smoothness);
+
+        spriteRenderer.sprite = InputManager.Instance.IsDraging ? closeHand : normalHand;
 
         HandleInteraction();
     }

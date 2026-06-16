@@ -1640,7 +1640,7 @@ MonoBehaviour:
   - {fileID: 288623597410380610, guid: f50d0495e523be145baa1a268938becf, type: 3}
   trashContainer: {fileID: 2003286907}
   spawnInterval: 3
-  spawnHeightOffset: 1
+  spawnHeightOffset: 0
   horizontalMargin: 0.5
   mainCamera: {fileID: 519420031}
   spawnLimit: 15

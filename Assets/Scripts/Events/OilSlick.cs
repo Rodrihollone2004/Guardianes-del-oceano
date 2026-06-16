@@ -40,9 +40,11 @@ public class OilSlick : MonoBehaviour, ILevelEvent
         }
     }
 
-    public void CleanOil()
+    public void CleanOil(Sponge sponge)
     {
         health--;
+
+        sponge.ContaminationCount++;
 
         float newAlpha = (float)health / maxHealth;
         SetAlpha(newAlpha);

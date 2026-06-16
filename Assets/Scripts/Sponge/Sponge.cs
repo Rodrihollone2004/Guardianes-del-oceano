@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour, IInteractable
 {
-    private Transform handTransform;
-    private int contaminationLayerIndex;
+    [Header("Layer Recycle Bin")]
+    public TrashType TrashType;
+    public LayerMask RecycleBinLayer;
 
+    private int contaminationLayerIndex;
+    private Transform handTransform;
+
+    public int ContaminationCount { get; set; }
     public bool IsCaught { get; private set; }
 
     private void Awake()
     {
+        ContaminationCount = 0;
         contaminationLayerIndex = LayerMask.NameToLayer("Contamination");
     }
 
@@ -32,20 +38,35 @@ public class Sponge : MonoBehaviour, IInteractable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == contaminationLayerIndex)
-            if (collision.TryGetComponent<OilSlick>(out OilSlick oil))
-                oil.CleanOil();
+            if (collision.TryGetComponent<OilSlick>(out OilSlick oil) && ContaminationCount < 3)
+                oil.CleanOil(this);
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.layer == contaminationLayerIndex)
-    //        if (collision.TryGetComponent<OilSlick>(out OilSlick oil))
-    //            oil.CleanOil();
-    //}
 
     public void DropSponge()
     {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.5f, RecycleBinLayer);
+
+        if (ContaminationCount >= 3 && hit != null && hit.TryGetComponent<RecycleBin>(out RecycleBin recycle))
+            CheckSpongeRecycle(recycle);
+
         IsCaught = false;
         handTransform = null;
+    }
+
+    private void CheckSpongeRecycle(RecycleBin recycle)
+    {
+        if (TrashType == recycle.RecycleType)
+        {
+            recycle.AnimateSuccess();
+            SpongeManager.Instance.SpawnSponge();
+            Destroy(gameObject);
+        }
+        else
+        {
+            recycle.AnimateError();
+            SpongeManager.Instance.SpawnSponge();
+            GameManager.Instance.NotifyWrongRecycle();
+            Destroy(gameObject);
+        }
     }
 }
