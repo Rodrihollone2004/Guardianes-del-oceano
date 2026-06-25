@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviour
     private bool isAlbum;
     private bool isPaused;
     private bool isTransitioning;
+    private bool isTutorialOpen;
 
     public bool IsGameOver { get => isGameOver; set => isGameOver = value; }
     public bool IsAlbum { get => isAlbum; set => isAlbum = value; }
     public bool IsPaused { get => isPaused; set => isPaused = value; }
+    public bool IsTutorialOpen { get => isTutorialOpen; set => isTutorialOpen = value; }
 
     private void Awake()
     {
@@ -75,6 +77,9 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause()
     {
+        if (isTutorialOpen)
+            return;
+
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
 
@@ -202,8 +207,8 @@ public class GameManager : MonoBehaviour
         currentContamination = 0;
         trashProcessed = 0;
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetupSceneDependencies();
     }

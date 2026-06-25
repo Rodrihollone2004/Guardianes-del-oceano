@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3577206067113524883}
   - component: {fileID: 8219068931216645315}
   m_Layer: 7
-  m_Name: Fish
+  m_Name: Fish 2.0
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,5 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fa740f969144b40ab29b8741f05717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
-  rescueHoldTime: 0
-  contactTypes: 
+  contactTypes: 01000000

@@ -36,6 +36,9 @@ public class HandController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsTutorialOpen)
+            return;
+
         Vector3 mousePosition = InputManager.Instance.MoveInput;
         mousePosition.z = Mathf.Abs(mainCamera.transform.position.z);
 
@@ -58,7 +61,7 @@ public class HandController : MonoBehaviour
             {
                 if (hit.TryGetComponent<Trash>(out var trash))
                     rescuingTrash = trash;
-                
+
                 if (hit.TryGetComponent<IInteractable>(out var interactable))
                 {
                     interactable.Interact(this);

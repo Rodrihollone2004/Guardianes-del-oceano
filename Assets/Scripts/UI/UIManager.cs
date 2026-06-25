@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
 using TMPro;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIPanel albumPanel;
     [SerializeField] private UIPanel mainMenuPanel;
     [SerializeField] private UIPanel optionsPanel;
+    [SerializeField] private UIPanel tutorialPanel;
 
     [Header("Feedback UI")]
     [SerializeField] private AlbumNotification albumNotification;
@@ -49,7 +49,8 @@ public class UIManager : MonoBehaviour
         fadePanel.alpha = 1f;
 
         GameManager.Instance.SetTransitioning(true);
-        fadePanel.DOFade(0f, 1f).OnComplete(() =>
+        ShowTutorialScreen();
+        fadePanel.DOFade(0f, 1f).SetUpdate(true).OnComplete(() =>
         {
             GameManager.Instance.SetTransitioning(false);
         });
@@ -88,11 +89,32 @@ public class UIManager : MonoBehaviour
     public void ShowLoseScreen() => OpenPanel(losePanel);
     public void ShowPauseScreen() => OpenPanel(pausePanel);
     public void ShowOptionsScreen() => OpenPanel(optionsPanel);
-    public void ShowAlbumScreen() => albumPanel.Show();
+    public void ShowAlbumScreen() { if (!GameManager.Instance.IsTutorialOpen) albumPanel.Show(); }
 
     public void ResumeAlbum() => albumPanel.Hide();
     public void ResumeGame() => CloseCurrentPanel();
     public void BackOptions(UIPanel panelUI) => OpenPanel(panelUI);
+
+    public void ShowTutorialScreen()
+    {
+        if (tutorialPanel != null)
+        {
+            GameManager.Instance.IsTutorialOpen = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+            OpenPanel(tutorialPanel);
+        }
+    }
+
+    public void CloseTutorial()
+    {
+        tutorialPanel.Hide();
+        GameManager.Instance.IsTutorialOpen = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1f;
+    }
 
     public void ShowAlert(string message, Color color)
     {
@@ -153,7 +175,7 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Sequence playSequence = DOTween.Sequence();
+        Sequence playSequence = DOTween.Sequence().SetUpdate(true);
         playSequence.Append(fadePanel.DOFade(1f, 1f));
 
         playSequence.OnComplete(() =>
@@ -176,7 +198,7 @@ public class UIManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
 
-            Sequence playSequence = DOTween.Sequence();
+            Sequence playSequence = DOTween.Sequence().SetUpdate(true);
             playSequence.Append(fadePanel.DOFade(1f, 1f));
 
             playSequence.OnComplete(() =>
@@ -198,7 +220,7 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Sequence playSequence = DOTween.Sequence();
+        Sequence playSequence = DOTween.Sequence().SetUpdate(true);
         playSequence.Append(fadePanel.DOFade(1f, 1f));
 
         playSequence.OnComplete(() =>

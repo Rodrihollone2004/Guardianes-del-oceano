@@ -1,7 +1,7 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
-public class MainMenuPanel : UIPanel
+public class TutorialPanel : UIPanel
 {
     [SerializeField] private RectTransform containerBotones;
     [SerializeField] private float duracionAnimacion = 0.5f;
@@ -14,7 +14,7 @@ public class MainMenuPanel : UIPanel
 
         Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Append(canvasGroup.DOFade(1f, duracionAnimacion));
-        seq.Join(containerBotones.DOAnchorPosX(0, duracionAnimacion).SetEase(Ease.OutBack));
+        seq.Join(containerBotones.DOAnchorPosY(0, duracionAnimacion).SetEase(Ease.OutBack));
         seq.OnComplete(() =>
         {
             canvasGroup.blocksRaycasts = true;
@@ -28,11 +28,12 @@ public class MainMenuPanel : UIPanel
     public override Tween Hide()
     {
         GameManager.Instance.SetTransitioning(true);
+
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
 
         Sequence seq = DOTween.Sequence().SetUpdate(true);
-        seq.Append(containerBotones.DOAnchorPosX(500f, duracionAnimacion).SetEase(Ease.InBack));
+        seq.Append(containerBotones.DOAnchorPosY(500f, duracionAnimacion).SetEase(Ease.InBack));
         seq.Join(canvasGroup.DOFade(0f, duracionAnimacion));
 
         seq.OnComplete(() =>
