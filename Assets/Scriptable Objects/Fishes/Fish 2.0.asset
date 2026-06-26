@@ -15,7 +15,7 @@ MonoBehaviour:
   fishName: Pez Payaso
   description: Un gran Pez
   prefab: {fileID: 836450720845214380, guid: 74d24c991afacf7409dea1fced71d316, type: 3}
-  stickerSprite: {fileID: 21300000, guid: fdcf3bc9a7ed2604fab684aafcb5b533, type: 3}
+  stickerSprite: {fileID: -8987039775877132495, guid: 4f99e377b7fe48342a3d2690c7b1f5da, type: 3}
   minVelocity: 2
   maxVelocity: 4
-  isUnlocked: 0
+  isUnlocked: 1

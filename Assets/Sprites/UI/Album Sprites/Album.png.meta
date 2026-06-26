@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b19990e33a64d854e9317cc64ce930dc
+guid: f10bc6648b18e1049bfad7246a17a289
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5584166297455321002
-    second: Mano_0
+      213: -4751849602599883212
+    second: Album_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mano_0
+      name: Album_0
       rect:
         serializedVersion: 2
-        x: 310
-        y: 107
-        width: 612
-        height: 657
+        x: 93
+        y: 102
+        width: 1086
+        height: 647
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaf588e49a1fe7d40800000000000000
-      internalID: 5584166297455321002
+      spriteID: 43ee3fa76f90e0eb0800000000000000
+      internalID: -4751849602599883212
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mano_0: 5584166297455321002
+      Album_0: -4751849602599883212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

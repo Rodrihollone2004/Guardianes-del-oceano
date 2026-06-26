@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f10bc6648b18e1049bfad7246a17a289
+guid: aec1b21f837fdb74c858c14a1fc8df7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4751849602599883212
-    second: Album_0
+      213: -7367949289774168944
+    second: BotonSinNada_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Album_0
+      name: BotonSinNada_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 102
-        width: 1086
-        height: 647
+        x: 0
+        y: 0
+        width: 341
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43ee3fa76f90e0eb0800000000000000
-      internalID: -4751849602599883212
+      spriteID: 0944be37829cfb990800000000000000
+      internalID: -7367949289774168944
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Album_0: -4751849602599883212
+      BotonSinNada_0: -7367949289774168944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

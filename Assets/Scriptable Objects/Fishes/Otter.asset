@@ -15,7 +15,7 @@ MonoBehaviour:
   fishName: Nutria Feliz
   description: Una gran Nutria
   prefab: {fileID: 2041263094059203963, guid: 6b7fcd71aa996bf429dd895c3cdeaf23, type: 3}
-  stickerSprite: {fileID: 21300000, guid: 3111f27ffe021b040b83609c24e6cce5, type: 3}
+  stickerSprite: {fileID: -2104647343511670792, guid: 2921af01352742d47b37513b4d7a5234, type: 3}
   minVelocity: 2
   maxVelocity: 4
-  isUnlocked: 0
+  isUnlocked: 1

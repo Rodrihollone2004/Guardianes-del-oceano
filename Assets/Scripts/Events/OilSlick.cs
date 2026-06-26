@@ -96,23 +96,23 @@ public class OilSlick : MonoBehaviour, ILevelEvent
 
     public void ContaminationSewagePipe()
     {
-        if (trashSpawner.ContaminationItems.Count > 0)
-            for (int i = 0; i < trashSpawner.ContaminationItems.Count; i++)
+        if (trashSpawner.CleanBackground.Count > 0)
+            for (int i = 0; i < trashSpawner.CleanBackground.Count; i++)
             {
-                Color contaminationColor = trashSpawner.ContaminationItems[i].color;
+                Color contaminationColor = trashSpawner.CleanBackground[i].color;
                 contaminationColor.a -= 0.02f;
-                trashSpawner.ContaminationItems[i].color = contaminationColor;
+                trashSpawner.CleanBackground[i].color = contaminationColor;
             }
     }
 
     public void GeneralContamination()
     {
-        if (trashSpawner.BackContamination.Count > 0)
-            for (int i = 0; i < trashSpawner.BackContamination.Count; i++)
+        if (trashSpawner.ContaminationBackground.Count > 0)
+            for (int i = 0; i < trashSpawner.ContaminationBackground.Count; i++)
             {
-                Color contaminationColor = trashSpawner.BackContamination[i].color;
+                Color contaminationColor = trashSpawner.ContaminationBackground[i].color;
                 contaminationColor.a += 0.02f;
-                trashSpawner.BackContamination[i].color = contaminationColor;
+                trashSpawner.ContaminationBackground[i].color = contaminationColor;
             }
     }
 }

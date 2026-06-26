@@ -98,7 +98,10 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         currentContamination += amount;
-        if (UIManager != null) UIManager.UpdateContamination(currentContamination);
+        UIManager.UpdateContamination(currentContamination);
+
+        if (TrashSpawner != null)
+            TrashSpawner.UpdateBackgroundOpacity(currentContamination, loseThreshold);
 
         if (currentContamination >= loseThreshold)
             GameOver(false);

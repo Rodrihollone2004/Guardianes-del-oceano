@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
@@ -17,8 +16,8 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private int spawnLimit;
 
     [Header("Items Contamination")]
-    [SerializeField] private List<SpriteRenderer> contaminationItems;
-    [SerializeField] private List<SpriteRenderer> backContamination;
+    [SerializeField] private List<SpriteRenderer> cleanBackGround;
+    [SerializeField] private List<SpriteRenderer> contaminationBackground;
 
     private int currentSpawn;
 
@@ -27,8 +26,8 @@ public class TrashSpawner : MonoBehaviour
     private float spawnY;
 
     public int SpawnLimit { get => spawnLimit; set => spawnLimit = value; }
-    public List<SpriteRenderer> ContaminationItems { get => contaminationItems; set => contaminationItems = value; }
-    public List<SpriteRenderer> BackContamination { get => backContamination; set => backContamination = value; }
+    public List<SpriteRenderer> CleanBackground { get => cleanBackGround; set => cleanBackGround = value; }
+    public List<SpriteRenderer> ContaminationBackground { get => contaminationBackground; set => contaminationBackground = value; }
 
     private void Awake()
     {
@@ -78,41 +77,68 @@ public class TrashSpawner : MonoBehaviour
         currentSpawn++;
     }
 
-    public void ReturnContamination()
+    public void UpdateBackgroundOpacity(float currentContamination, float maxContamination)
     {
-        if (contaminationItems.Count > 0)
-            foreach (SpriteRenderer item in contaminationItems)
-            {
-                Color color = item.color;
-                if (color.a > 1f)
-                    continue;
-                color.a += 0.02f;
-                item.color = color;
-            }
+        float dirtyAlpha = Mathf.Clamp01(currentContamination / maxContamination);
 
-        if (backContamination.Count > 0)
-            foreach (SpriteRenderer item in backContamination)
+        float cleanAlpha = 1f - dirtyAlpha;
+
+        if (cleanBackGround.Count > 0)
+        {
+            foreach (SpriteRenderer item in cleanBackGround)
             {
                 Color color = item.color;
-                if (color.a < 0f)
-                    continue;
-                color.a -= 0.02f;
+                color.a = cleanAlpha;
                 item.color = color;
             }
+        }
+
+        if (contaminationBackground.Count > 0)
+        {
+            foreach (SpriteRenderer item in contaminationBackground)
+            {
+                Color color = item.color;
+                color.a = dirtyAlpha;
+                item.color = color;
+            }
+        }
     }
+
+    //public void ReturnContamination()
+    //{
+    //    if (contaminationItems.Count > 0)
+    //        foreach (SpriteRenderer item in contaminationItems)
+    //        {
+    //            Color color = item.color;
+    //            if (color.a > 1f)
+    //                continue;
+    //            color.a += 0.02f;
+    //            item.color = color;
+    //        }
+
+    //    if (backContamination.Count > 0)
+    //        foreach (SpriteRenderer item in backContamination)
+    //        {
+    //            Color color = item.color;
+    //            if (color.a < 0f)
+    //                continue;
+    //            color.a -= 0.02f;
+    //            item.color = color;
+    //        }
+    //}
 
     private void ResetItemsAlpha()
     {
-        if (contaminationItems.Count > 0)
-            foreach (SpriteRenderer item in contaminationItems)
+        if (cleanBackGround.Count > 0)
+            foreach (SpriteRenderer item in cleanBackGround)
             {
                 Color color = item.color;
                 color.a = 1f;
                 item.color = color;
             }
 
-        if (backContamination.Count > 0)
-            foreach (SpriteRenderer item in backContamination)
+        if (contaminationBackground.Count > 0)
+            foreach (SpriteRenderer item in contaminationBackground)
             {
                 Color color = item.color;
                 color.a = 0f;

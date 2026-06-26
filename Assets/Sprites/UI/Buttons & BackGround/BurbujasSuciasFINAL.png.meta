@@ -1,0 +1,1417 @@
+fileFormatVersion: 2
+guid: c9ef84a76638c1f448c9c837dd9b432c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3706230344514604608
+    second: BurbujasSuciasFINAL_0
+  - first:
+      213: 6175685443005541397
+    second: BurbujasSuciasFINAL_1
+  - first:
+      213: -5856150655001327963
+    second: BurbujasSuciasFINAL_2
+  - first:
+      213: 1753341780611070038
+    second: BurbujasSuciasFINAL_3
+  - first:
+      213: -5655205056694604449
+    second: BurbujasSuciasFINAL_4
+  - first:
+      213: -4827797070295521778
+    second: BurbujasSuciasFINAL_5
+  - first:
+      213: 5223978739999719220
+    second: BurbujasSuciasFINAL_6
+  - first:
+      213: -2608178443737089824
+    second: BurbujasSuciasFINAL_7
+  - first:
+      213: 5254642392774295785
+    second: BurbujasSuciasFINAL_8
+  - first:
+      213: 3365161528011556019
+    second: BurbujasSuciasFINAL_9
+  - first:
+      213: 79127659605810282
+    second: BurbujasSuciasFINAL_10
+  - first:
+      213: 518135119116938284
+    second: BurbujasSuciasFINAL_11
+  - first:
+      213: 3702865527238150090
+    second: BurbujasSuciasFINAL_12
+  - first:
+      213: 1266256433910012601
+    second: BurbujasSuciasFINAL_13
+  - first:
+      213: -8693168729691604755
+    second: BurbujasSuciasFINAL_14
+  - first:
+      213: 3284258203592788470
+    second: BurbujasSuciasFINAL_15
+  - first:
+      213: 1784414901814846231
+    second: BurbujasSuciasFINAL_16
+  - first:
+      213: 2794728629018589092
+    second: BurbujasSuciasFINAL_17
+  - first:
+      213: -730926195586291496
+    second: BurbujasSuciasFINAL_18
+  - first:
+      213: 5623403237337173929
+    second: BurbujasSuciasFINAL_19
+  - first:
+      213: -1421680095634296285
+    second: BurbujasSuciasFINAL_20
+  - first:
+      213: 6795755594735134515
+    second: BurbujasSuciasFINAL_21
+  - first:
+      213: -2749122625973485424
+    second: BurbujasSuciasFINAL_22
+  - first:
+      213: 2838045807921572005
+    second: BurbujasSuciasFINAL_23
+  - first:
+      213: 2018824788011402460
+    second: BurbujasSuciasFINAL_24
+  - first:
+      213: -7273023949342154243
+    second: BurbujasSuciasFINAL_25
+  - first:
+      213: -1850578924104550625
+    second: BurbujasSuciasFINAL_26
+  - first:
+      213: -8391036466452181220
+    second: BurbujasSuciasFINAL_27
+  - first:
+      213: 8083003193946706271
+    second: BurbujasSuciasFINAL_28
+  - first:
+      213: -1021867229896163880
+    second: BurbujasSuciasFINAL_29
+  - first:
+      213: -7535334395272702130
+    second: BurbujasSuciasFINAL_30
+  - first:
+      213: -3129326943661236340
+    second: BurbujasSuciasFINAL_31
+  - first:
+      213: 3551718239535336398
+    second: BurbujasSuciasFINAL_32
+  - first:
+      213: -8227629394844669291
+    second: BurbujasSuciasFINAL_33
+  - first:
+      213: 9033128724264388130
+    second: BurbujasSuciasFINAL_34
+  - first:
+      213: -1936445354738111901
+    second: BurbujasSuciasFINAL_35
+  - first:
+      213: -848349726081781323
+    second: BurbujasSuciasFINAL_36
+  - first:
+      213: -1845707795143380978
+    second: BurbujasSuciasFINAL_37
+  - first:
+      213: 3548645768428955711
+    second: BurbujasSuciasFINAL_38
+  - first:
+      213: 5775388136692277928
+    second: BurbujasSuciasFINAL_39
+  - first:
+      213: -8608442265385502514
+    second: BurbujasSuciasFINAL_40
+  - first:
+      213: -968026441648869182
+    second: BurbujasSuciasFINAL_41
+  - first:
+      213: -6406169370655803358
+    second: BurbujasSuciasFINAL_42
+  - first:
+      213: 5616097941312779690
+    second: BurbujasSuciasFINAL_43
+  - first:
+      213: -4182385510193497768
+    second: BurbujasSuciasFINAL_44
+  - first:
+      213: 1189626060551579413
+    second: BurbujasSuciasFINAL_45
+  - first:
+      213: 3426012884412296676
+    second: BurbujasSuciasFINAL_46
+  - first:
+      213: 4665744353254055536
+    second: BurbujasSuciasFINAL_47
+  - first:
+      213: 4727689764749588980
+    second: BurbujasSuciasFINAL_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_0
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 733
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1fe6b5323d09cc0800000000000000
+      internalID: -3706230344514604608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 710
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c65e2b03174b550800000000000000
+      internalID: 6175685443005541397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_2
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 719
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a68979a106cabea0800000000000000
+      internalID: -5856150655001327963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_3
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 706
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6587c235f0f155810800000000000000
+      internalID: 1753341780611070038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_4
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 694
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5da9b7a6fca481b0800000000000000
+      internalID: -5655205056694604449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 679
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e062d51b428300db0800000000000000
+      internalID: -4827797070295521778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_6
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 674
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f30e77cfc4f7840800000000000000
+      internalID: 5223978739999719220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_7
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 645
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8383e2683edcbd0800000000000000
+      internalID: -2608178443737089824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_8
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 645
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0450b7a6d3ce840800000000000000
+      internalID: 5254642392774295785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_9
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 656
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b480f0949473be20800000000000000
+      internalID: 3365161528011556019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_10
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 549
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c56baef2e191100800000000000000
+      internalID: 79127659605810282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_11
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 591
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cae984529c03700800000000000000
+      internalID: 518135119116938284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_12
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 587
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7c1121498336330800000000000000
+      internalID: 3702865527238150090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_13
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 567
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba52c98485a29110800000000000000
+      internalID: 1266256433910012601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_14
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 545
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8b2364919ab5780800000000000000
+      internalID: -8693168729691604755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_15
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 531
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f98fc77f67049d20800000000000000
+      internalID: 3284258203592788470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_16
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 521
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713669226e383c810800000000000000
+      internalID: 1784414901814846231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_17
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 484
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7744881eed8c620800000000000000
+      internalID: 2794728629018589092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_18
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 495
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d82d0b6f7a3bd5f0800000000000000
+      internalID: -730926195586291496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_19
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 442
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af834643775a0e40800000000000000
+      internalID: 5623403237337173929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_20
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 448
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32279734c7d254ce0800000000000000
+      internalID: -1421680095634296285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_21
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 401
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337af8c35bf5f4e50800000000000000
+      internalID: 6795755594735134515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_22
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 402
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0908cd2898729d9d0800000000000000
+      internalID: -2749122625973485424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_23
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 384
+        width: 44
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8a37d20a3c26720800000000000000
+      internalID: 2838045807921572005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_24
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 394
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd44c21d27e440c10800000000000000
+      internalID: 2018824788011402460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_25
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 372
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df16d809047011b90800000000000000
+      internalID: -7273023949342154243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_26
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 388
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f177ce7f54c6156e0800000000000000
+      internalID: -1850578924104550625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_27
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 318
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fc4c79acc0d8b80800000000000000
+      internalID: -8391036466452181220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_28
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 362
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f519a8d44989c2070800000000000000
+      internalID: 8083003193946706271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_29
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 354
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd3d622b2991d1f0800000000000000
+      internalID: -1021867229896163880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_30
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 333
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47dcf99a4d1d6790800000000000000
+      internalID: -7535334395272702130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_31
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 298
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f530189b56294d0800000000000000
+      internalID: -3129326943661236340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_32
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 316
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb87c9cbec3a4130800000000000000
+      internalID: 3551718239535336398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 297
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59aa8b048a691dd80800000000000000
+      internalID: -8227629394844669291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_34
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 283
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226082417be1c5d70800000000000000
+      internalID: 9033128724264388130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_35
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 271
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a21e7a53d5025e0800000000000000
+      internalID: -1936445354738111901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_36
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 242
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1789b3b6e0a34f0800000000000000
+      internalID: -848349726081781323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_37
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 245
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e003f4f0a8ab266e0800000000000000
+      internalID: -1845707795143380978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_38
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 216
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38a6ec56825f3130800000000000000
+      internalID: 3548645768428955711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_39
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 248
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a26c8739ec462050800000000000000
+      internalID: 5775388136692277928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_40
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 211
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8fc3e7e5ba88880800000000000000
+      internalID: -8608442265385502514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_41
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 214
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c075548411e092f0800000000000000
+      internalID: -968026441648869182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_42
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 188
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228b21316e6b817a0800000000000000
+      internalID: -6406169370655803358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_43
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 180
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa530cf725360fd40800000000000000
+      internalID: 5616097941312779690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_44
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 76
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859fc27a98e25f5c0800000000000000
+      internalID: -4182385510193497768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_45
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 63
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51769b26996628010800000000000000
+      internalID: 1189626060551579413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_46
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 38
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed6e4b0194ab8f20800000000000000
+      internalID: 3426012884412296676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_47
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 29
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e1e74e4cd00c040800000000000000
+      internalID: 4665744353254055536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurbujasSuciasFINAL_48
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 0
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9362ceac02c9140800000000000000
+      internalID: 4727689764749588980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BurbujasSuciasFINAL_0: -3706230344514604608
+      BurbujasSuciasFINAL_1: 6175685443005541397
+      BurbujasSuciasFINAL_10: 79127659605810282
+      BurbujasSuciasFINAL_11: 518135119116938284
+      BurbujasSuciasFINAL_12: 3702865527238150090
+      BurbujasSuciasFINAL_13: 1266256433910012601
+      BurbujasSuciasFINAL_14: -8693168729691604755
+      BurbujasSuciasFINAL_15: 3284258203592788470
+      BurbujasSuciasFINAL_16: 1784414901814846231
+      BurbujasSuciasFINAL_17: 2794728629018589092
+      BurbujasSuciasFINAL_18: -730926195586291496
+      BurbujasSuciasFINAL_19: 5623403237337173929
+      BurbujasSuciasFINAL_2: -5856150655001327963
+      BurbujasSuciasFINAL_20: -1421680095634296285
+      BurbujasSuciasFINAL_21: 6795755594735134515
+      BurbujasSuciasFINAL_22: -2749122625973485424
+      BurbujasSuciasFINAL_23: 2838045807921572005
+      BurbujasSuciasFINAL_24: 2018824788011402460
+      BurbujasSuciasFINAL_25: -7273023949342154243
+      BurbujasSuciasFINAL_26: -1850578924104550625
+      BurbujasSuciasFINAL_27: -8391036466452181220
+      BurbujasSuciasFINAL_28: 8083003193946706271
+      BurbujasSuciasFINAL_29: -1021867229896163880
+      BurbujasSuciasFINAL_3: 1753341780611070038
+      BurbujasSuciasFINAL_30: -7535334395272702130
+      BurbujasSuciasFINAL_31: -3129326943661236340
+      BurbujasSuciasFINAL_32: 3551718239535336398
+      BurbujasSuciasFINAL_33: -8227629394844669291
+      BurbujasSuciasFINAL_34: 9033128724264388130
+      BurbujasSuciasFINAL_35: -1936445354738111901
+      BurbujasSuciasFINAL_36: -848349726081781323
+      BurbujasSuciasFINAL_37: -1845707795143380978
+      BurbujasSuciasFINAL_38: 3548645768428955711
+      BurbujasSuciasFINAL_39: 5775388136692277928
+      BurbujasSuciasFINAL_4: -5655205056694604449
+      BurbujasSuciasFINAL_40: -8608442265385502514
+      BurbujasSuciasFINAL_41: -968026441648869182
+      BurbujasSuciasFINAL_42: -6406169370655803358
+      BurbujasSuciasFINAL_43: 5616097941312779690
+      BurbujasSuciasFINAL_44: -4182385510193497768
+      BurbujasSuciasFINAL_45: 1189626060551579413
+      BurbujasSuciasFINAL_46: 3426012884412296676
+      BurbujasSuciasFINAL_47: 4665744353254055536
+      BurbujasSuciasFINAL_48: 4727689764749588980
+      BurbujasSuciasFINAL_5: -4827797070295521778
+      BurbujasSuciasFINAL_6: 5223978739999719220
+      BurbujasSuciasFINAL_7: -2608178443737089824
+      BurbujasSuciasFINAL_8: 5254642392774295785
+      BurbujasSuciasFINAL_9: 3365161528011556019
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

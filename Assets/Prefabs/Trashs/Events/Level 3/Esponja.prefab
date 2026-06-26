@@ -183,3 +183,5 @@ MonoBehaviour:
   RecycleBinLayer:
     serializedVersion: 2
     m_Bits: 256
+  normalSprite: {fileID: 21300000, guid: fc95b27019e2f5447af6ae03068f4745, type: 3}
+  dirtySprite: {fileID: 3667154692540357792, guid: 6b514480e34d0024c8d7a150fcf907d9, type: 3}

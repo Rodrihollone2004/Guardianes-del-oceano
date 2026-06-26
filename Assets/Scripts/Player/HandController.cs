@@ -30,8 +30,6 @@ public class HandController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()

@@ -15,7 +15,7 @@ MonoBehaviour:
   fishName: Tortuga
   description: Una gran tortuga
   prefab: {fileID: 7136415429445101995, guid: a720b65efff280e4cbafca2864e73e5b, type: 3}
-  stickerSprite: {fileID: 21300000, guid: fa7ccaa10d806db4ab33b08876a3b415, type: 3}
+  stickerSprite: {fileID: 3220199462416524431, guid: 4089ae9a28eab964d9a2035948e27032, type: 3}
   minVelocity: 2
   maxVelocity: 4
-  isUnlocked: 0
+  isUnlocked: 1

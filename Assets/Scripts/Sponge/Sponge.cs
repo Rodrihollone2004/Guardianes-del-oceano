@@ -6,14 +6,35 @@ public class Sponge : MonoBehaviour, IInteractable
     public TrashType TrashType;
     public LayerMask RecycleBinLayer;
 
+    [Header("Visual Feedback")]
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite dirtySprite;
+
     private int contaminationLayerIndex;
     private Transform handTransform;
+    private SpriteRenderer spriteRenderer;
 
-    public int ContaminationCount { get; set; }
+    private int contaminationCount;
+    public int ContaminationCount
+    {
+        get => contaminationCount;
+        set
+        {
+            contaminationCount = value;
+
+            if (contaminationCount >= 3 && spriteRenderer != null && dirtySprite != null)
+                spriteRenderer.sprite = dirtySprite;
+        }
+    }
     public bool IsCaught { get; private set; }
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null && normalSprite != null)
+            spriteRenderer.sprite = normalSprite;
+
         ContaminationCount = 0;
         contaminationLayerIndex = LayerMask.NameToLayer("Contamination");
     }
