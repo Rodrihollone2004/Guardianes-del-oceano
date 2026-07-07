@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.SetTransitioning(true);
         ShowTutorialScreen();
-        fadePanel.DOFade(0f, 1f).SetUpdate(true).OnComplete(() =>
+        fadePanel.DOFade(0f, 1f).SetDelay(1.5f).SetUpdate(true).OnComplete(() =>
         {
             GameManager.Instance.SetTransitioning(false);
         });
@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
     public void ShowLoseScreen() => OpenPanel(losePanel);
     public void ShowPauseScreen() => OpenPanel(pausePanel);
     public void ShowOptionsScreen() => OpenPanel(optionsPanel);
-    public void ShowAlbumScreen() { if (!GameManager.Instance.IsTutorialOpen) albumPanel.Show(); }
+    public void ShowAlbumScreen() => albumPanel.Show();
 
     public void ResumeAlbum() => albumPanel.Hide();
     public void ResumeGame() => CloseCurrentPanel();
@@ -129,6 +129,9 @@ public class UIManager : MonoBehaviour
 
     public void AlbumSet()
     {
+        if (GameManager.Instance.IsTutorialOpen)
+            return;
+
         AudioManager.Instance.PlaySFX2D(clicButton);
         GameManager.Instance.IsAlbum = true;
 

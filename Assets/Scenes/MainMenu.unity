@@ -4720,7 +4720,7 @@ MonoBehaviour:
   TrashTrigger: {fileID: 0}
   UIManager: {fileID: 0}
   allFishInGame:
-  - {fileID: 11400000, guid: 7ce330ce106fb5744bbc7aae030e0056, type: 2}
+  - {fileID: 11400000, guid: 106a369e559eb8340a71e3eeadd24160, type: 2}
   - {fileID: 11400000, guid: 6ee46b1c7c278084fbc5e799a7d5c037, type: 2}
   - {fileID: 11400000, guid: 7ce330ce106fb5744bbc7aae030e0056, type: 2}
   - {fileID: 11400000, guid: 0c27e4ee580c4964695d4344ed8e648b, type: 2}
