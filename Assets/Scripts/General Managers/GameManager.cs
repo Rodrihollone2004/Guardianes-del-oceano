@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         currentContamination += amount;
-        UIManager.UpdateContamination(currentContamination);
 
         if (TrashSpawner != null)
             TrashSpawner.UpdateBackgroundOpacity(currentContamination, loseThreshold);
@@ -121,8 +120,6 @@ public class GameManager : MonoBehaviour
     public void NotifyWrongRecycle()
     {
         if (isGameOver) return;
-
-        if (UIManager != null) UIManager.ShowAlert("WRONG BIN!", Color.red);
 
         float penalty = 100f / totalTrashSpawned;
         AddRawContamination(penalty);

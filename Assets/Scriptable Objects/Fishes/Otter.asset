@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4452c8828877045826b3bf9363e7fe, type: 3}
   m_Name: Otter
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishName: Nutria Feliz
-  description: Una gran Nutria
+  fishName: Nutria
+  description: 'Nosotras mantenemos el orden del mar!!
+
+    Pero la contaminacion
+    casi nos deja sin ese trabajo.
+
+    Los humanos nos rescatan y nos curan mientras
+    otros intentan limpiar nuestro hogar'
   prefab: {fileID: 2041263094059203963, guid: 6b7fcd71aa996bf429dd895c3cdeaf23, type: 3}
   stickerSprite: {fileID: -2104647343511670792, guid: 2921af01352742d47b37513b4d7a5234, type: 3}
   minVelocity: 2

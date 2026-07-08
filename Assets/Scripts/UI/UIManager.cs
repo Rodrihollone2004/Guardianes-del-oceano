@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("UI Texts")]
-    [SerializeField] private TMP_Text contaminationText;
-    [SerializeField] private TMP_Text alertText;
-
     [Header("UI Animated Panels")]
     [SerializeField] private CanvasGroup fadePanel;
     [SerializeField] private UIPanel winPanel;
@@ -32,7 +28,6 @@ public class UIManager : MonoBehaviour
         StartGame();
 
         GameManager.Instance.UIManager = this;
-        UpdateContamination(0);
 
         if (GameManager.Instance.HasUnseenFish() && albumNotification != null)
             albumNotification.NotifyNewFish();
@@ -54,12 +49,6 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.SetTransitioning(false);
         });
-    }
-
-    public void UpdateContamination(float percentage)
-    {
-        if (contaminationText != null)
-            contaminationText.text = $"CONTAMINATION: {Mathf.RoundToInt(percentage)}";
     }
 
     private void OpenPanel(UIPanel newPanel)
@@ -115,17 +104,6 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 1f;
     }
-
-    public void ShowAlert(string message, Color color)
-    {
-        alertText.text = message;
-        alertText.color = color;
-        alertText.gameObject.SetActive(true);
-
-        Invoke("HideAlert", 1.0f);
-    }
-
-    private void HideAlert() => alertText.gameObject.SetActive(false);
 
     public void AlbumSet()
     {

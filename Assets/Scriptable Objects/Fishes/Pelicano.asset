@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4452c8828877045826b3bf9363e7fe, type: 3}
-  m_Name: Turtle
+  m_Name: Pelicano
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishName: Tortuga
-  description: "Nosotras somos muy inocentes y nos confundimos al comer. \nEso hace
-    que comamos cosas que nos lastiman mucho. \nPero hay humanos que se preocupan
-    por nosotras y se dedican a cuidarnos."
-  prefab: {fileID: 7136415429445101995, guid: a720b65efff280e4cbafca2864e73e5b, type: 3}
-  stickerSprite: {fileID: 3220199462416524431, guid: 4089ae9a28eab964d9a2035948e27032, type: 3}
+  fishName: Pelicano
+  description: Aunque vivimos fuera del agua, la limpieza de los oceanos tambien
+    salvo a nuestra especie!
+  prefab: {fileID: 0}
+  stickerSprite: {fileID: -6336149721635171977, guid: bb2ae69deb783484a9e0d5e1d1bd0c4a, type: 3}
   minVelocity: 2
   maxVelocity: 4
   isUnlocked: 1

@@ -18,7 +18,7 @@ public class BubbleFloat : MonoBehaviour
 
     private void Update()
     {
-        float newY = startPosition.y + Mathf.Sin(Time.time * speed) * amplitude;
+        float newY = startPosition.y + Mathf.Sin(Time.unscaledTime * speed) * amplitude;
 
         transform.position = new Vector3(startPosition.x, newY, startPosition.z);
     }

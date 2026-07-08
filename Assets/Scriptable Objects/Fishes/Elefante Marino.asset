@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4452c8828877045826b3bf9363e7fe, type: 3}
-  m_Name: Turtle
+  m_Name: Elefante Marino
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishName: Tortuga
-  description: "Nosotras somos muy inocentes y nos confundimos al comer. \nEso hace
-    que comamos cosas que nos lastiman mucho. \nPero hay humanos que se preocupan
-    por nosotras y se dedican a cuidarnos."
-  prefab: {fileID: 7136415429445101995, guid: a720b65efff280e4cbafca2864e73e5b, type: 3}
-  stickerSprite: {fileID: 3220199462416524431, guid: 4089ae9a28eab964d9a2035948e27032, type: 3}
+  fishName: Elefante Marino
+  description: Hace un tiempo solo quedabamos 100. Hoy, gracias a la ayuda que nos
+    dan ya somos mas de 20.000!!
+  prefab: {fileID: 0}
+  stickerSprite: {fileID: -1241121195254348769, guid: 4a965b6c14ffa5646a7ffe01d85d6fd9, type: 3}
   minVelocity: 2
   maxVelocity: 4
   isUnlocked: 1
