@@ -9375,7 +9375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicGroup: {fileID: 374105962362039391, guid: 54c328849a0ed32499cf5aff9541f52d, type: 2}
   sfxGroup: {fileID: -6431670617342649891, guid: 54c328849a0ed32499cf5aff9541f52d, type: 2}
-  musicClip: {fileID: 8300000, guid: 713b3cba859e22142bc39ffddf7cc444, type: 3}
+  musicClip: {fileID: 8300000, guid: 6aece1ef038af824da2c176c09cf2d98, type: 3}
   buttonHover: {fileID: 8300000, guid: 628aa83a6fd12c14681ab56d8c379a67, type: 3}
 --- !u!4 &1757070591
 Transform:
