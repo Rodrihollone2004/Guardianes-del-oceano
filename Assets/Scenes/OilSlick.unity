@@ -7371,7 +7371,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 910, y: 486}
-  m_SizeDelta: {x: 101.47595, y: 76.83429}
+  m_SizeDelta: {x: 101.476, y: 101.4966}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1482037457
 MonoBehaviour:
@@ -7461,8 +7461,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 7960712277792059792, guid: 5a16cdd3b380bbd4c8f44f94bddce6de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8421,7 +8421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REINICIAR
+  m_text: SIGUIENTE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5eaa04a6d61d6d4f89122cc96ff0b7c, type: 2}
   m_sharedMaterial: {fileID: 563809927008369189, guid: b5eaa04a6d61d6d4f89122cc96ff0b7c, type: 2}
@@ -8726,7 +8726,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 632914704}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

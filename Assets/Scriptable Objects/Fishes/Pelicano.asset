@@ -19,4 +19,4 @@ MonoBehaviour:
   stickerSprite: {fileID: -6336149721635171977, guid: bb2ae69deb783484a9e0d5e1d1bd0c4a, type: 3}
   minVelocity: 2
   maxVelocity: 4
-  isUnlocked: 1
+  isUnlocked: 0

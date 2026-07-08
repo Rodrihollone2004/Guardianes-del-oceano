@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OilSlick.unity
     guid: c2de43b8b5b687847b4da81288aa0c5c
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 196a926e1cb2d674b820a140c4aadbe0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
